@@ -1,37 +1,34 @@
-import { createHashRouter } from 'react-router-dom'
-import Root from './Root.jsx'
-import Landing from './Landing.jsx';
-import Mums from './Mums.jsx';
-import MumsMenu from './MumsMenu.jsx';
+import * as ReactDOM from "react-dom/client";
+import React from "react";
+import Landing from "./Landing";
+import Root from "./Root";
+import Mums from "./Mums";
+import MumsMenu from "./MumsMenu";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 
 const router = createHashRouter([
 	{
-		// Om URL i adressfältet matchar denna route '/'
 		path: "/",
-
-		// Så ska Root-komponenten renderas
 		element: <Root />,
-
-		// Lägg till ett element om du vill hantera felaktiga länkar
-		// errorElement: <ErrorPage />,
-
-		// Inuti Root ska vi klistra in den komponent vars route matchar URL bäst
 		children: [
 			{
-				path: '/Landing',
-				element: <Landing />
+				index: true,
+				element: <Landing />,
 			},
 			{
-				path: '/Mums',
-				element: <Mums />
+				path: "Mums",
+				element: <Mums />,
 			},
 			{
-				path: '/Mumsmenu',
-				element: <MumsMenu />
+				path: "MumsMenu",
+				element: <MumsMenu />,
 			},
-		]
+		],
 	},
-	
 ]);
 
-export { router }
+ReactDOM.createRoot(document.getElementById("root")).render(
+	<React.StrictMode>
+		<RouterProvider router={router} />
+	</React.StrictMode>
+);
