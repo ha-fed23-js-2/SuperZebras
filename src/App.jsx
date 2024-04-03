@@ -3,7 +3,9 @@ import "./App.css";
 function App() {
 	return (
 		<>
-			<div>Andra Langos INIT</div>
+			<div>
+				<h2 className="londrina-solid-light">Andra Langos INIT</h2>
+			</div>
 		</>
 	);
 }
