@@ -4,7 +4,7 @@ function App() {
 	return (
 		<>
 			<div>
-				<h2 className="londrina-solid-light">Andra Langos INIT</h2>
+				<h2 className="londrina-solid-regular">Andra Langos INIT</h2>
 			</div>
 		</>
 	);
