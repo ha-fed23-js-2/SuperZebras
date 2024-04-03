@@ -12,6 +12,7 @@ const router = createHashRouter([
 		element: <Root />,
 		children: [
 			{
+				// we use index that tell the router that this is the default page
 				index: true,
 				element: <Landing />,
 			},

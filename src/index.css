@@ -48,9 +48,16 @@ button {
 	--main-color: #f87d58;
 	--secondary-color: #f8f4e3;
 	--compliment-color: #2b2d42;
+	--compliment-color_alpha: #2b2d423c;
 	--notification-color: #ef233c;
 	--cta-color: #92eb4c;
 	--border-radius: 30px;
+	--font-big: 64px;
+	--font-med: 32px;
+	--font-med-small: 28px;
+	--font-normal: 16px;
+	--font-small: 8px;
+	--shadow: 0px 0px 30px rgba(0, 0, 0, 0.438);
 }
 
 h2 {
