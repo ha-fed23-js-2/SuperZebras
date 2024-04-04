@@ -88,3 +88,8 @@ h2 {
 	font-weight: 900;
 	font-style: normal;
 }
+.span{
+	font-size: var(--font-med-smallsmall);
+	color: var(--secondary-color);
+}
+
