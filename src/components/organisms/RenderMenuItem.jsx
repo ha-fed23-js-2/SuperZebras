@@ -2,7 +2,7 @@ import PriceDisplay from "../moledules/menu/PriceDisplay";
 import MenuItem from "../moledules/menu/MenuItem";
 import ItemDisplay from "../moledules/menu/ItemDisplay";
 import styled from "styled-components";
-// import ImageStore from "../../data/ItemStore";
+import ImageStore from "../../data/ItemStore";
 
 const StyledMenuRender = styled.div`
 	display: flex;
