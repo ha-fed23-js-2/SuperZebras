@@ -1,8 +1,8 @@
 import PriceDisplay from "../moledules/menu/PriceDisplay";
 import MenuItem from "../moledules/menu/MenuItem";
-import ItemDisplay from "../moledules/menu/ItemDisplay";
 import styled from "styled-components";
 import ImageStore from "../../data/ItemStore";
+import PropTypes from "prop-types";
 
 const StyledMenuRender = styled.div`
 	display: flex;
@@ -20,16 +20,26 @@ const StyledMenuRender = styled.div`
 const title = "Basic Bitch";
 const ingredients = "ost, och tråkig sourcream";
 const price = "65 spänn";
-// let image = ImageStore.images[1];
 
-const MenuRender = () => {
+const MenuRender = ({ selectedIndex }) => {
+	const { images } = ImageStore();
+	let img;
+	if (images && images.food && images.food[selectedIndex]) {
+		img = images.food[selectedIndex].img;
+	}
+	console.log({ img });
+	console.log(img);
+
 	return (
 		<StyledMenuRender>
-			{/* <ItemDisplay img={image} /> */}
-			<MenuItem title={title} ingredients={ingredients} />
+			{img && <MenuItem img={img} title={title} ingredients={ingredients} />}
 			<PriceDisplay price={price} />
 		</StyledMenuRender>
 	);
+};
+
+MenuRender.propTypes = {
+	selectedIndex: PropTypes.number.isRequired,
 };
 
 export default MenuRender;

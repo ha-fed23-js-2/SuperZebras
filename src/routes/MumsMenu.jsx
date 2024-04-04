@@ -4,7 +4,7 @@ const MumsMenu = () => (
 		<h2> Välkommen! </h2>
 		<p> PERSONALSIDANNANANAN </p>
 		<p> test-render itemDisplay: </p>
-		<RenderMenuItem />
+		<RenderMenuItem selectedIndex={6} />
 	</div>
 );
 

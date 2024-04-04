@@ -1,14 +1,8 @@
 import { create } from "zustand";
+import img from "./menu-img.json";
 
-const imageModules = import.meta.globEager("../assets/img/menu-imgs/*.{jpg,jpeg,png,svg}");
-
-let images = {};
-for (const path in imageModules) {
-	images[path] = imageModules[path].default;
-}
-
-const ImageStore = create((set) => ({
-	images: images,
+const ImageStore = create(() => ({
+	images: img,
 }));
 
 export default ImageStore;

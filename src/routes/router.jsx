@@ -1,4 +1,4 @@
-import * as ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom/client";
 import React from "react";
 import Landing from "./Landing";
 import Root from "./Root";
