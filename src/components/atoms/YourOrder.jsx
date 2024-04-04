@@ -21,17 +21,19 @@ const YourOrderValueContainer = styled.div`
     top: 20px;
     transform: rotate(-5deg);
 
+    
 `;
 
 const YourOrderValueBackground = styled.div`
     padding: 1px 6px;
     background-color: var(--notification-color);
-    color: var(--secondary-color)
-`;
+    color: var(--secondary-color);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;`;
 
 const YourOrderValue = styled.p`
     position: relative;
     transform: rotate(5deg);
+    
 `;
 
 export default function YourOrder() {
