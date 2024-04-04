@@ -23,8 +23,10 @@ const Mums = () => {
 
 	const handlePasswordSubmit = () => {
 		if (password.length >= 4) {
+			// yes I also check the lenght. Because I did this in the onchange earlier, and left it here for good measure.
 			const isPasswordCorrect = password === "mums";
 			if (!isPasswordCorrect) {
+				// todo: array with error messages, because fun ;)
 				setErrorMsg("Haha nej det gör du ju inte. Prova igen. YOU GOT THIS");
 			} else {
 				setErrorMsg("");
