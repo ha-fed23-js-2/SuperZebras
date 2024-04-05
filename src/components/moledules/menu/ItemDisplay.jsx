@@ -1,7 +1,13 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
+
 const ItemDisplay = ({ image }) => {
-	return <StyledItemDisplay>{image}</StyledItemDisplay>;
+	console.log("Image URL:", image); // Log the image URL
+	return (
+		<StyledItemDisplay>
+			<img src={image} alt="" />
+		</StyledItemDisplay>
+	);
 };
 
 const StyledItemDisplay = styled.div`
@@ -10,7 +16,7 @@ const StyledItemDisplay = styled.div`
 `;
 
 ItemDisplay.propTypes = {
-	image: PropTypes.node.isRequired,
+	image: PropTypes.string.isRequired,
 };
 
 export default ItemDisplay;

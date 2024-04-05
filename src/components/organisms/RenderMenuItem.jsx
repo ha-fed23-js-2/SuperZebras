@@ -1,7 +1,7 @@
 import PriceDisplay from "../moledules/menu/PriceDisplay";
 import MenuItem from "../moledules/menu/MenuItem";
+import ItemDisplay from "../moledules/menu/ItemDisplay";
 import styled from "styled-components";
-import { ImageStore, MenuItems } from "../../data/ItemStore";
 import PropTypes from "prop-types";
 
 const StyledMenuRender = styled.div`
@@ -17,29 +17,19 @@ const StyledMenuRender = styled.div`
 	box-sizing: border-box;
 `;
 
-const title = MenuItems.items[0].title;
-const ingredients = MenuItems.items[0].ingredients;
-const price = MenuItems.items[0].price;
-
-const MenuRender = ({ selectedIndex }) => {
-	const { images } = ImageStore();
-	let img;
-	if (images && images.food && images.food[selectedIndex]) {
-		img = images.food[selectedIndex].img;
-	}
-	console.log({ img });
-	console.log(img);
-
+const MenuRender = ({ selectedImg, title, desc, price }) => {
 	return (
 		<StyledMenuRender>
-			{img && <MenuItem img={img} title={title} ingredients={ingredients} />}
-			<PriceDisplay price={price} />
+			{selectedImg && selectedImg.img && <ItemDisplay image={selectedImg.img} />}
+			<MenuItem title={title} desc={desc} price={price} />
 		</StyledMenuRender>
 	);
 };
 
 MenuRender.propTypes = {
-	selectedIndex: PropTypes.number.isRequired,
+	selectedImg: PropTypes.object,
+	title: PropTypes.string.isRequired,
+	desc: PropTypes.string.isRequired,
+	price: PropTypes.string.isRequired,
 };
-
 export default MenuRender;

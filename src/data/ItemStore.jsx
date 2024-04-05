@@ -1,11 +1,12 @@
 import { create } from "zustand";
-import img from "./menu-img.json";
-
-export const ImageStore = create(() => ({
-	images: img,
-}));
+import images from "./menu-img.json";
 
 // export default ItemStore;
+
+export const img = create((set) => ({
+	images,
+	setImages: (imgs) => set({ images: imgs }),
+}));
 
 export const FoodItems = {
 	items: [
@@ -51,3 +52,12 @@ export const DrinkItems = {
 		},
 	],
 };
+
+export const useItemStore = create((set) => ({
+	FoodItems,
+	DrinkItems,
+	images: img.getState().images,
+	setFoodItems: (items) => set({ FoodItems: { ...FoodItems, items } }),
+	setDrinkItems: (items) => set({ DrinkItems: { ...DrinkItems, items } }),
+	setImages: (imgs) => set({ images: imgs }),
+}));
