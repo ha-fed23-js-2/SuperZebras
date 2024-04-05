@@ -111,7 +111,3 @@ const MenuItemForm = ({addMenuItem}) => {
 
 export default MenuItemForm
 
-// const addMenuItem = (newMenuItem) => {
-//     const updatedMenuItems = [...menuItems, newMenuItem];
-//     setMenuItems(updatedMenuItems);
-//   };

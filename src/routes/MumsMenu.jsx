@@ -27,13 +27,13 @@ margin-bottom: 20px;
 const MumsMenu = () => {
 	const [menuItems, setMenuItems] = useState([])
 	const addMenuItem = (newMenuItem) => {
-		const updatedMenuItems = [...menuItems, newMenuItems]
+		const updatedMenuItems = [...menuItems, newMenuItem]
 		setMenuItems(updatedMenuItems)
 	}
 	return(
 		<StyledMumsMenu>
 			<Logo src={logo} alt="logo" />
-			<MenuItemForm />
+			<MenuItemForm addMenuItem={addMenuItem} />
 
 		</StyledMumsMenu>
 		
