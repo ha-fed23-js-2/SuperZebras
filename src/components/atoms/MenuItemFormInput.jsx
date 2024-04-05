@@ -101,8 +101,8 @@ const MenuItemForm = ({addMenuItem}) => {
                 value={image}
                 onChange={(e) => setImage(e.target.value)} />
             </label>
+                <StyledButton type="submit"> Lägg till </StyledButton>
 
-            <StyledButton type="submit"> Lägg till </StyledButton>
 
         </form>
     )
@@ -111,4 +111,3 @@ const MenuItemForm = ({addMenuItem}) => {
 
 export default MenuItemForm
 
-// hej
