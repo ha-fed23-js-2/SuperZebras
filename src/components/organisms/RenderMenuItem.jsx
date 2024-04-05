@@ -1,7 +1,7 @@
 import PriceDisplay from "../moledules/menu/PriceDisplay";
 import MenuItem from "../moledules/menu/MenuItem";
 import styled from "styled-components";
-import ImageStore from "../../data/ItemStore";
+import { ImageStore } from "../../data/ItemStore";
 import PropTypes from "prop-types";
 
 const StyledMenuRender = styled.div`
