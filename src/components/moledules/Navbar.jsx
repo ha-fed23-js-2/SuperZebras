@@ -21,6 +21,7 @@ const StyledUl = styled.ul`
 const Logo = styled.img`
     width: 100px;
     height: auto;
+    z-index: 1002;
 `;
 
 
