@@ -1,0 +1,52 @@
+{
+	"food": [
+		{
+			"img": "src/assets/img/menu-imgs/item__food1.svg"
+		},
+		{
+			"img": "src/assets/img/menu-imgs/item__food2.svg"
+		},
+		{
+			"img": "src/assets/img/menu-imgs/item__food3.svg"
+		},
+		{
+			"img": "src/assets/img/menu-imgs/ny_meny1.svg"
+		},
+		{
+			"img": "src/assets/img/menu-imgs/ny_meny2.svg"
+		},
+		{
+			"img": "src/assets/img/menu-imgs/ny_meny3.svg"
+		},
+		{
+			"img": "src/assets/img/menu-imgs/ny_meny4.svg"
+		},
+		{
+			"img": "src/assets/img/menu-imgs/ny_meny5.svg"
+		}
+	],
+
+	"drink": [
+		{
+			"img": "src/assets/img/menu-imgs/item__drink1.svg"
+		},
+		{
+			"img": "src/assets/img/menu-imgs/item__drink2.svg"
+		},
+		{
+			"img": "src/assets/img/menu-imgs/item__drink3.svg"
+		},
+		{
+			"img": "src/assets/img/menu-imgs/item__drink4.svg"
+		},
+		{
+			"img": "src/assets/img/menu-imgs/item__drink5.svg"
+		},
+		{
+			"img": "src/assets/img/menu-imgs/item__drink6.svg"
+		},
+		{
+			"img": "src/assets/img/menu-imgs/item__drink7.svg"
+		}
+	]
+}

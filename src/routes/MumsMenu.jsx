@@ -34,10 +34,8 @@ const MumsMenu = () => {
 		<StyledMumsMenu>
 			<Logo src={logo} alt="logo" />
 			<MenuItemForm addMenuItem={addMenuItem} />
-
+			<RenderMenuItem selectedIndex={6} />
 		</StyledMumsMenu>
 		
 		)
 	}
-
-export default MumsMenu
