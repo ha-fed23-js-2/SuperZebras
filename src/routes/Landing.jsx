@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import facts from "../data/facts";
 import logo from "../assets/img/andra-longos-light-logo.svg";
-import LangoImage from "../assets/img/langos-section-img.svg"
+import LangosImage from "../assets/img/langos-section-img.svg"
+import drinkImage from "../assets/img/drinks-section-img.svg"
 
 
 const StyledLanding = styled.div`
@@ -13,8 +14,8 @@ const StyledLanding = styled.div`
 	align-items: center;
 	justify-content: flex-start;
 	text-align: center;
-	padding: 20px;
 	box-sizing: border-box;
+	flex-grow: 1;
 `;
 
 const Logo = styled.img`
@@ -44,29 +45,60 @@ const RandomFact = styled.h3`
 	line-height: 1.15;
 	letter-spacing: 1px;
 `;
-const Span = styled.span`
+const Section = styled.section`
+    padding: 0;
+
+`;
+
+const LangosSpan = styled.span`
     color: var(--secondary-color);
 	font-size: var(--font-med-small);
 `;
 
+const DrinkSpan = styled.span`
+    color: var(--secondary-color);
+	font-size: var(--font-med-small);
+`;
 
+const FoodImage = styled.img`
+  
+`;
+const FoodSection = styled(Section)`
+    
+`;
+
+const DrinkSection= styled(Section)`
+    color: var(--secondary-color);
+	width:100%;
+	background-color: var(--secondary-color);
+`;
 
 const Landing = () => {
 	const randomFact = facts[Math.floor(Math.random() * facts.length)];
 	const factString = randomFact.fact;
 	
-
 	return (
 		<StyledLanding>
 			<Logo src={logo} alt="Logo" />
-						<Title>Sugen på
-						</Title> 
-						<Title><Span> FUCKING</Span> langos?</Title>
+         
+			<FoodSection> 
+				<Title>Sugen på </Title> 
+					 <Title><LangosSpan> FUCKING</LangosSpan>langos?</Title>
 						
-            <img src={LangoImage} alt="Langos"/>
+            <FoodImage src={LangosImage} alt="Langos"/>
 
 			<h5>langos</h5>
-			
+
+			</FoodSection>
+						
+			<DrinkSection> 
+				<Title>Sugen på
+						</Title> 
+						<Title><DrinkSpan> FUCKING</DrinkSpan> bärs?</Title>
+						<img src={drinkImage} alt="Drinks"/>
+						<h5>drinks</h5>
+			</DrinkSection>
+
 			<RandomFact>{factString}</RandomFact>
 			<Subtitle></Subtitle>
 		</StyledLanding>
