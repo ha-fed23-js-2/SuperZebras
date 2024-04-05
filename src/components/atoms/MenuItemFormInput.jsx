@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState } from "react"
 import styled from "styled-components"
 
 const  StyledP = styled.p`
@@ -39,7 +39,7 @@ const StyledButton = styled.button`
 	margin-left: 1rem;
 `
 
-const MenuItemForm = () => {
+const MenuItemForm = ({addMenuItem}) => {
     const [name, setName] = useState("")
     const [ingredients, setIngredients] = useState("")
     const [price, setPrice] = useState("")
@@ -52,7 +52,7 @@ const MenuItemForm = () => {
             price,
             image
         }
-        // skapaMenuItem()
+        addMenuItem(newMenuItem)
         setName("")
         setIngredients("")
         setPrice("")

@@ -1,3 +1,4 @@
+import {useState} from "react"
 import MenuItemForm from "../components/atoms/MenuItemFormInput"
 import styled from "styled-components"
 import logo from "../assets/img/andra-longos-light-logo.svg";
@@ -16,19 +17,27 @@ const StyledMumsMenu = styled.div`
 `;
 
 const Logo = styled.img`
-	align-self: center;
-	width: 200px;
-	height: auto;
-	margin-top: 286px;
-	margin-bottom: 20px;
+align-self: center;
+width: 200px;
+height: auto;
+margin-top: 286px;
+margin-bottom: 20px;
 `;
-const MumsMenu = () => (
-	<StyledMumsMenu>
-		<Logo src={logo} alt="logo" />
-		<MenuItemForm />
 
-	</StyledMumsMenu>
-	
-)
+const MumsMenu = () => {
+	const [menuItems, setMenuItems] = useState([])
+	const addMenuItem = (newMenuItem) => {
+		const updatedMenuItems = [...menuItems, newMenuItems]
+		setMenuItems(updatedMenuItems)
+	}
+	return(
+		<StyledMumsMenu>
+			<Logo src={logo} alt="logo" />
+			<MenuItemForm />
+
+		</StyledMumsMenu>
+		
+		)
+	}
 
 export default MumsMenu
