@@ -1,7 +1,7 @@
 import PriceDisplay from "../moledules/menu/PriceDisplay";
 import MenuItem from "../moledules/menu/MenuItem";
 import styled from "styled-components";
-import { ImageStore } from "../../data/ItemStore";
+import { ImageStore, MenuItems } from "../../data/ItemStore";
 import PropTypes from "prop-types";
 
 const StyledMenuRender = styled.div`
@@ -17,9 +17,9 @@ const StyledMenuRender = styled.div`
 	box-sizing: border-box;
 `;
 
-const title = "Basic Bitch";
-const ingredients = "ost, och tråkig sourcream";
-const price = "65 spänn";
+const title = MenuItems.items[0].title;
+const ingredients = MenuItems.items[0].ingredients;
+const price = MenuItems.items[0].price;
 
 const MenuRender = ({ selectedIndex }) => {
 	const { images } = ImageStore();
