@@ -12,10 +12,10 @@ const MumsMenu = () => {
 			<p> PERSONALSIDANNANANAN </p>
 			<p> test-render itemDisplay: </p>
 			<RenderMenuItem
-				selectedImg={images.items[0]}
-				title={FoodItems.items[0].title}
-				desc={FoodItems.items[0].ingredients}
-				price={FoodItems.items[0].price}
+				selectedImg={images.items[1]}
+				title={FoodItems.items[1].title}
+				desc={FoodItems.items[1].ingredients}
+				price={FoodItems.items[1].price}
 			/>
 		</div>
 	);
