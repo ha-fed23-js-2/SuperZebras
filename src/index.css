@@ -92,4 +92,8 @@ h2 {
 	font-size: var(--font-med-smallsmall);
 	color: var(--secondary-color);
 }
+.img{
+display: flex;
+flex-grow: calc(1rem 1rem);
+}
 

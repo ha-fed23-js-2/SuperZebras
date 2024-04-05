@@ -50,6 +50,7 @@ const Span = styled.span`
 `;
 
 
+
 const Landing = () => {
 	const randomFact = facts[Math.floor(Math.random() * facts.length)];
 	const factString = randomFact.fact;
