@@ -56,7 +56,7 @@ const LangosSpan = styled.span`
 `;
 
 const DrinkSpan = styled.span`
-    color: var(--secondary-color);
+    color: var(--compliment-color);
 	font-size: var(--font-med-small);
 `;
 
@@ -68,9 +68,10 @@ const FoodSection = styled(Section)`
 `;
 
 const DrinkSection= styled(Section)`
-    color: var(--secondary-color);
+    color: var(--compliment-color);
 	width:100%;
 	background-color: var(--secondary-color);
+	
 `;
 
 const Landing = () => {
@@ -107,4 +108,3 @@ const Landing = () => {
 };
 
 export default Landing;
-@
