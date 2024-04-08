@@ -84,7 +84,7 @@ const Landing = () => {
          
 			<FoodSection> 
 				<Title>Sugen på </Title> 
-					 <Title><LangosSpan> FUCKING</LangosSpan>langos?</Title>
+					 <Title><LangosSpan> FUCKING </LangosSpan>langos?</Title>
 						
             <FoodImage src={LangosImage} alt="Langos"/>
 
