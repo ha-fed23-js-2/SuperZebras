@@ -10,19 +10,17 @@ const StyledTitle = styled.h2`
 	font-size: var(--font-med-small);
 `;
 
-const MenuItem = ({ img, title, ingredients }) => {
+const MenuItem = ({ title, desc }) => {
 	return (
 		<StyledIngredientDisplay>
 			<StyledTitle>{title}</StyledTitle>
-			<h3>{ingredients}</h3>
-			<img src={img} alt={title} />
+			<h3>{desc}</h3>
 		</StyledIngredientDisplay>
 	);
 };
 MenuItem.propTypes = {
-	img: PropTypes.string.isRequired,
 	title: PropTypes.string.isRequired,
-	ingredients: PropTypes.string.isRequired,
+	desc: PropTypes.string.isRequired,
 };
 
 export default MenuItem;

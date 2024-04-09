@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import facts from "../data/facts";
-import logo from "../assets/img/andra-longos-light-logo.svg";
+import Navbar from "../components/moledules/Navbar";
 
 const StyledLanding = styled.div`
 	display: flex;
@@ -13,13 +13,6 @@ const StyledLanding = styled.div`
 	text-align: center;
 	padding: 20px;
 	box-sizing: border-box;
-`;
-
-const Logo = styled.img`
-	align-self: flex-start;
-	width: 200px;
-	height: auto;
-	margin-bottom: 20px;
 `;
 
 const Title = styled.h1`
@@ -47,12 +40,14 @@ const Landing = () => {
 	const factString = randomFact.fact;
 
 	return (
+		<main>
+			<Navbar />
 		<StyledLanding>
-			<Logo src={logo} alt="Logo" />
 			<Title>Riktigt jävla go Langos!</Title>
 			<RandomFact>{factString}</RandomFact>
 			<Subtitle>Vi har öl också. Vi ligger ju fan ändå på lången.</Subtitle>
 		</StyledLanding>
+		</main>
 	);
 };
 
