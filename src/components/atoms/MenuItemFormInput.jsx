@@ -1,5 +1,6 @@
 import { useState } from "react"
 import styled from "styled-components"
+import Dropdown from "./DropDownMenuImg";
 
 const  StyledP = styled.p`
     color: var(--secondary-color);
@@ -98,8 +99,7 @@ const MenuItemForm = ({addMenuItem}) => {
                 <StyledP>
                     Bild
                 </StyledP>
-                <StyledInput type="text"
-                value={image}
+                <Dropdown
                 onChange={(e) => setImage(e.target.value)} />
             </label>
                 <StyledButton type="submit"> Lägg till </StyledButton>
