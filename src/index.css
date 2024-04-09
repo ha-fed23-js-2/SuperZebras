@@ -65,9 +65,8 @@ h1{
 	letter-spacing: 4px;
 	color: var(--compliment-color);
 	padding: 1rem;
-
-
 }
+
 
 h2 {
 	letter-spacing: 4px;
@@ -112,3 +111,8 @@ span.DrinkSpan{
 
 }
 
+.FooterSection{
+	background-color: var(--compliment-color);
+	color: var(--compliment-color_alpha);
+
+}
