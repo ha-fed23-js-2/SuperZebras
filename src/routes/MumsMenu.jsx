@@ -37,3 +37,5 @@ const MumsMenu = () => {
 		</StyledMumsMenu>
 	);
 };
+
+export default MumsMenu;

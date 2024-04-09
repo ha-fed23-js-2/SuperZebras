@@ -1,9 +1,8 @@
 import styled from "styled-components";
 import facts from "../data/facts";
 import Navbar from "../components/moledules/Navbar";
-import LangosImage from "../assets/img/langos-section-img.svg"
-import drinkImage from "../assets/img/drinks-section-img.svg"
-
+import LangosImage from "../assets/img/langos-section-img.svg";
+import drinkImage from "../assets/img/drinks-section-img.svg";
 
 const StyledLanding = styled.div`
 	display: flex;
@@ -28,7 +27,6 @@ const Title = styled.h1`
 	color: var(--Secondary-color);
 	padding: 0.5rem;
 	line-height: 1;
-
 `;
 
 const Subtitle = styled.h2`
@@ -45,67 +43,62 @@ const RandomFact = styled.h3`
 	letter-spacing: 1px;
 `;
 const Section = styled.section`
-    padding: 0;
-
+	padding: 0;
 `;
 
 const LangosSpan = styled.span`
-    color: var(--secondary-color);
+	color: var(--secondary-color);
 	font-size: var(--font-med-small);
 `;
 
 const DrinkSpan = styled.span`
-    color: var(--compliment-color);
+	color: var(--compliment-color);
 	font-size: var(--font-med-small);
 `;
 
-const FoodImage = styled.img`
-  
-`;
-const FoodSection = styled(Section)`
-    
-`;
+const FoodImage = styled.img``;
+const FoodSection = styled(Section)``;
 
-const DrinkSection= styled(Section)`
-    color: var(--compliment-color);
-	width:100%;
+const DrinkSection = styled(Section)`
+	color: var(--compliment-color);
+	width: 100%;
 	background-color: var(--secondary-color);
-	
 `;
 
 const Landing = () => {
 	const randomFact = facts[Math.floor(Math.random() * facts.length)];
 	const factString = randomFact.fact;
-	
+	const logo = "../assets/img/andra-longos-light-logo.svg";
 	return (
 		<main>
 			<Navbar />
-		<StyledLanding>
-			<Logo src={logo} alt="Logo" />
-         
-			<FoodSection> 
-				<Title>Sugen på </Title> 
-					 <Title><LangosSpan> FUCKING </LangosSpan>langos?</Title>
-						
-            <FoodImage src={LangosImage} alt="Langos"/>
+			<StyledLanding>
+				<Logo src={logo} alt="Logo" />
 
-			<h5>langos</h5>
+				<FoodSection>
+					<Title>Sugen på </Title>
+					<Title>
+						<LangosSpan> FUCKING </LangosSpan>langos?
+					</Title>
 
-			</FoodSection>
-						
-			<DrinkSection> 
-				<Title>Sugen på
-						</Title> 
-						<Title><DrinkSpan> FUCKING</DrinkSpan> bärs?</Title>
-						<img src={drinkImage} alt="Drinks"/>
-						<h5>drinks</h5>
-			</DrinkSection>
+					<FoodImage src={LangosImage} alt="Langos" />
 
-			<RandomFact>{factString}</RandomFact>
-			<Subtitle></Subtitle>
-		</StyledLanding>
-		
+					<h5>langos</h5>
+				</FoodSection>
+
+				<DrinkSection>
+					<Title>Sugen på</Title>
+					<Title>
+						<DrinkSpan> FUCKING</DrinkSpan> bärs?
+					</Title>
+					<img src={drinkImage} alt="Drinks" />
+					<h5>drinks</h5>
+				</DrinkSection>
+
+				<RandomFact>{factString}</RandomFact>
+				<Subtitle></Subtitle>
+			</StyledLanding>
+		</main>
 	);
 };
-
 export default Landing;
