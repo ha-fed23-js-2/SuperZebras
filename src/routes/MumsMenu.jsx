@@ -1,24 +1,39 @@
-import RenderMenuItem from "../components/organisms/RenderMenuItem";
-import { useItemStore } from "../data/ItemStore";
+import { useState } from "react";
+import MenuItemForm from "../components/atoms/MenuItemFormInput";
+import styled from "styled-components";
+import logo from "../assets/img/andra-longos-light-logo.svg";
+
+const StyledMumsMenu = styled.div`
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	font-size: var(--font-med);
+	align-items: center;
+	justify-content: flex-start;
+	text-align: center;
+	padding: 20px;
+	box-sizing: border-box;
+`;
+
+const Logo = styled.img`
+	align-self: center;
+	width: 200px;
+	height: auto;
+	margin-top: 286px;
+	margin-bottom: 20px;
+`;
 
 const MumsMenu = () => {
-	const { images, FoodItems, DrinkItems } = useItemStore();
-
-	// todo:  save current menuItem as new item, don't hardcode either food or drink
-	console.log("imagePAth", images);
+	const [menuItems, setMenuItems] = useState([]);
+	const addMenuItem = (newMenuItem) => {
+		const updatedMenuItems = [...menuItems, newMenuItem];
+		setMenuItems(updatedMenuItems);
+	};
 	return (
-		<div>
-			<h2> Välkommen! </h2>
-			<p> PERSONALSIDANNANANAN </p>
-			<p> test-render itemDisplay: </p>
-			<RenderMenuItem
-				selectedImg={images.items[0]}
-				title={FoodItems.items[0].title}
-				desc={FoodItems.items[0].ingredients}
-				price={FoodItems.items[0].price}
-			/>
-		</div>
+		<StyledMumsMenu>
+			<Logo src={logo} alt="logo" />
+			<MenuItemForm addMenuItem={addMenuItem} />
+		</StyledMumsMenu>
 	);
 };
-
-export default MumsMenu;
