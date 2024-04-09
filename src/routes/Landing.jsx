@@ -64,6 +64,33 @@ const DrinkSection = styled(Section)`
 	width: 100%;
 	background-color: var(--secondary-color);
 `;
+const FooterSection = styled.footer`;
+      color:var(--compliment-color);
+      width: 100%; 
+	  min-height: auto; 
+`;
+
+ const H6 = styled.h6`
+ color: var(--secondary-color);
+
+ `;
+
+const Line = styled.hr`
+boder:none;
+margin: 2rem; 
+flex-grow: 2;
+`;
+
+const DrinkText = styled.div`
+text-align: center;
+font-size:20px;
+`;
+
+const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  
+  `;
 
 const Landing = () => {
 	const randomFact = facts[Math.floor(Math.random() * facts.length)];
@@ -80,8 +107,13 @@ const Landing = () => {
 
 					<FoodImage src={LangosImage} alt="Langos" />
 
-					<h5>langos</h5>
+					<Row> 
+						<Line/>
+					<DrinkText>langos</DrinkText>
+					<Line/>
+					</Row>
 				</FoodSection>
+
 
 				<DrinkSection>
 					<Title>Sugen på</Title>
@@ -89,11 +121,23 @@ const Landing = () => {
 						<DrinkSpan> FUCKING</DrinkSpan> bärs?
 					</Title>
 					<img src={drinkImage} alt="Drinks" />
-					<h5>drinks</h5>
+
+					<Row> 
+						<Line/>
+					<DrinkText>drinks</DrinkText>
+					<Line/>
+					</Row>
+					
 				</DrinkSection>
 
 				<RandomFact>{factString}</RandomFact>
 				<Subtitle></Subtitle>
+
+
+				<FooterSection className="FooterSection"> 
+					<H6>ANDRA LANGOS </H6>
+				</FooterSection>
+
 			</StyledLanding>
 		</main>
 	);
