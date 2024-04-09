@@ -1,6 +1,6 @@
-import {useState} from "react"
-import MenuItemForm from "../components/atoms/MenuItemFormInput"
-import styled from "styled-components"
+import { useState } from "react";
+import MenuItemForm from "../components/atoms/MenuItemFormInput";
+import styled from "styled-components";
 import logo from "../assets/img/andra-longos-light-logo.svg";
 import RenderMenuItem from "../components/organisms/RenderMenuItem"
 
@@ -26,19 +26,17 @@ const Logo = styled.img`
 `;
 
 const MumsMenu = () => {
-	const [menuItems, setMenuItems] = useState([])
+	const [menuItems, setMenuItems] = useState([]);
 	const addMenuItem = (newMenuItem) => {
-		const updatedMenuItems = [...menuItems, newMenuItem]
-		setMenuItems(updatedMenuItems)
-	}
-	return(
+		const updatedMenuItems = [...menuItems, newMenuItem];
+		setMenuItems(updatedMenuItems);
+	};
+	return (
 		<StyledMumsMenu>
 			<Logo src={logo} alt="logo" />
 			<MenuItemForm addMenuItem={addMenuItem} />
-			<RenderMenuItem selectedIndex={6} />
 		</StyledMumsMenu>
-		
-		)
-	}
+	);
+};
 
-export default MumsMenu
+export default MumsMenu;
