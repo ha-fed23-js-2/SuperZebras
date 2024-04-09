@@ -2,7 +2,7 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 const ItemDisplay = ({ image }) => {
-	console.log("Image URL:", image); // Log the image URL
+	console.log("Image URL:", image);
 	return (
 		<StyledItemDisplay>
 			<img src={image} alt="" />
@@ -11,8 +11,11 @@ const ItemDisplay = ({ image }) => {
 };
 
 const StyledItemDisplay = styled.div`
-	width: 100%;
-	height: 100%;
+	height: 50%;
+	display: flex;
+	flex-direction: column;
+	gap: 0.15rem;
+	background: var(--secondary-color);
 `;
 
 ItemDisplay.propTypes = {

@@ -2,8 +2,9 @@ import { useState } from "react";
 import MenuItemForm from "../components/atoms/MenuItemFormInput";
 import styled from "styled-components";
 import logo from "../assets/img/andra-longos-light-logo.svg";
+import RenderMenuItem from "../components/organisms/RenderMenuItem"
 
-const StyledMumsMenu = styled.div`
+const StyledMumsMenu = styled.section`
 	display: flex;
 	flex-direction: column;
 	width: 100%;
