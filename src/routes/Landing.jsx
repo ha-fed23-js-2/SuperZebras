@@ -68,13 +68,10 @@ const DrinkSection = styled(Section)`
 const Landing = () => {
 	const randomFact = facts[Math.floor(Math.random() * facts.length)];
 	const factString = randomFact.fact;
-	const logo = "../assets/img/andra-longos-light-logo.svg";
 	return (
 		<main>
 			<Navbar />
 			<StyledLanding>
-				<Logo src={logo} alt="Logo" />
-
 				<FoodSection>
 					<Title>Sugen på </Title>
 					<Title>
