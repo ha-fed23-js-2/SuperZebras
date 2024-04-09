@@ -53,6 +53,7 @@ const MenuItemForm = ({addMenuItem}) => {
             image
         }
         addMenuItem(newMenuItem)
+        console.log("newmenuitemdata = ", newMenuItem);
         setName("")
         setIngredients("")
         setPrice("")
@@ -102,7 +103,6 @@ const MenuItemForm = ({addMenuItem}) => {
                 onChange={(e) => setImage(e.target.value)} />
             </label>
                 <StyledButton type="submit"> Lägg till </StyledButton>
-
 
         </form>
     )

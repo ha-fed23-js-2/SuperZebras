@@ -18,11 +18,11 @@ const StyledMumsMenu = styled.section`
 `;
 
 const Logo = styled.img`
-align-self: center;
-width: 200px;
-height: auto;
-margin-top: 286px;
-margin-bottom: 20px;
+	align-self: center;
+	width: 200px;
+	height: auto;
+	margin-top: 286px;
+	margin-bottom: 20px;
 `;
 
 const MumsMenu = () => {
