@@ -6,9 +6,10 @@ const DropdownMenu = styled.div`
 	width: 75%;
 	display: flex;
 	flex-direction: column;
-	gap: 0.35rem;
+	gap: 0.5rem;
 	padding: 0.65rem;
 	border-radius: 10px;
+    margin-bottom: 1rem;
 	box-shadow: 0px 0px 10px ##202020;
 	border: 1px solid #3e3e3e;
 	background-color: var(--secondary-color);
@@ -18,21 +19,22 @@ const DropdownMenu = styled.div`
 `;
 
 // in case we want to style them, keeping for brevity :)
-// const DropDownItem = styled.div`
-// 	font-size: 1rem;
-// 	padding: 0.35rem;
-// 	transition: text-shadow 0.15s 0.01s, transform 0.15s 0.01s;
-// 	text-shadow: transparent;
+const DropDownItem = styled.div`
+	font-size: 1rem;
+    margin-bottom: 1rem;
+	padding: 0.35rem;
+	transition: text-shadow 0.15s 0.01s, transform 0.15s 0.01s;
+	text-shadow: transparent;
 
-// 	&:hover,
-// 	&.selected {
-// 		transform: scale(1.02);
-// 		text-shadow: 0px 0px 10px #cecece;
-// 		background: var(--secondary-color);
-// 		cursor: pointer;
-// 		overflow: hidden;
-// 	}
-// `;
+	&:hover,
+	&.selected {
+		transform: scale(1.02);
+		text-shadow: 0px 0px 10px #cecece;
+		background: var(--secondary-color);
+		cursor: pointer;
+		overflow: hidden;
+	}
+`;
 
 const Dropdown = () => {
 	//for dropdown

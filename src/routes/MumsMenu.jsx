@@ -30,6 +30,7 @@ const MumsMenu = () => {
 	const addMenuItem = (newMenuItem) => {
 		const updatedMenuItems = [...menuItems, newMenuItem];
 		setMenuItems(updatedMenuItems);
+		console.log("updatedMenuItems = ", updatedMenuItems);
 	};
 	return (
 		<StyledMumsMenu>

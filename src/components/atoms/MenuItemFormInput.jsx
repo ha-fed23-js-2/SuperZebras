@@ -54,7 +54,6 @@ const MenuItemForm = ({addMenuItem}) => {
             image
         }
         addMenuItem(newMenuItem)
-        console.log("newmenuitemdata = ", newMenuItem);
         setName("")
         setIngredients("")
         setPrice("")
