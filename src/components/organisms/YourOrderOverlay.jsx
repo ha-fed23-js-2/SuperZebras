@@ -84,14 +84,13 @@ const Divider = styled.div`
     margin: 0 auto;
 `;
 
-// Define other styled components for different elements within the overlay as needed
 
 export default function YourOrderOverlay() {
     const overlayVisible = useOverlayStore((state) => state.overlayVisible);
     const toggleOverlay = useOverlayStore((state) => state.toggleOverlay);
 
     const handleCloseOverlay = () => {
-        toggleOverlay(); // Call the toggleOverlay function to hide the overlay
+        toggleOverlay();
     };
 
     return (

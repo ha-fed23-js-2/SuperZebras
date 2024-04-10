@@ -15,6 +15,8 @@ const StyledLanding = styled.div`
     justify-content: flex-start;
     text-align: center;
     box-sizing: border-box;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
 `;
 
 const Logo = styled.img`
