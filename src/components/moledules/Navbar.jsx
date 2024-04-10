@@ -10,7 +10,8 @@ const StyledNavbar = styled.nav`
     box-sizing: border-box;
     position: sticky;
     top: 0;
-    background-color: var(--main-color);
+    // background-color: var(--main-color);
+    // with: 100%;
 `;
 
 const StyledUl = styled.ul`

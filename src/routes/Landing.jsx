@@ -3,6 +3,7 @@ import facts from "../data/facts";
 import Navbar from "../components/moledules/Navbar";
 import LangosImage from "../assets/img/langos-section-img.svg";
 import drinkImage from "../assets/img/drinks-section-img.svg";
+import sectionBg from "../assets/img/section-bg.svg";
 import YourOrderOverlay from "../components/organisms/YourOrderOverlay";
 
 const StyledLanding = styled.div`
@@ -12,23 +13,19 @@ const StyledLanding = styled.div`
     height: 100%;
     font-size: var(--font-med);
     align-items: center;
-    justify-content: flex-start;
+    // justify-content: flex-start;
     text-align: center;
     box-sizing: border-box;
-	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-
-`;
-
-const Logo = styled.img`
-    align-self: flex-start;
-    width: 200px;
-    height: auto;
-    margin-bottom: 20px;
 `;
 
 const Title = styled.h1`
-    color: var(--Secondary-color);
-    padding: 0.5rem;
+    color: var(--secondary-color);
+    padding: 1rem;
+    line-height: 1;
+`;
+const Title2 = styled.h1`
+    color: var(--compliment-color);
+    padding: 1rem;
     line-height: 1;
 `;
 
@@ -40,6 +37,7 @@ const Subtitle = styled.h2`
 `;
 const RandomFact = styled.h3`
     color: var(--compliment-color);
+    background-color: var(--secondary-color);
     padding: 1rem;
     font-size: var(--font-med-smaller);
     line-height: 1.15;
@@ -51,21 +49,35 @@ const Section = styled.section`
 
 const LangosSpan = styled.span`
     color: var(--secondary-color);
-    font-size: var(--font-med-small);
+    font-size: var(--font-normal);
 `;
 
 const DrinkSpan = styled.span`
     color: var(--compliment-color);
-    font-size: var(--font-med-small);
+    font-size: var(--font-normal);
 `;
 
-const FoodImage = styled.img``;
-const FoodSection = styled(Section)``;
+const FoodImage = styled.img`
+    width: 70%;
+    margin: 1em auto;
+`;
+
+const FoodSection = styled(Section)`
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+`;
 
 const DrinkSection = styled(Section)`
     color: var(--compliment-color);
     width: 100%;
     background-color: var(--secondary-color);
+    background-image: url(${sectionBg});
+    // background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    padding-top: 200px;
 `;
 const FooterSection = styled.footer`
     color: var(--compliment-color);
@@ -78,9 +90,8 @@ const H6 = styled.h6`
 `;
 
 const Line = styled.hr`
-boder:none;
-margin: 1rem; 
-flex-grow: 2;
+    margin: 1rem;
+    flex-grow: 2;
 `;
 
 const DrinkText = styled.div`
@@ -91,25 +102,24 @@ const DrinkText = styled.div`
 const Row = styled.div`
     display: flex;
     flex-direction: row;
+    color: var(--secondary-color);
+    background-color: var(secondary-color);
+    align-items: center;
 `;
-
-
 
 const Landing = () => {
     const randomFact = facts[Math.floor(Math.random() * facts.length)];
     const factString = randomFact.fact;
-    
 
     return (
         <main>
-			
-            <YourOrderOverlay/>
+            <YourOrderOverlay />
 
             <Navbar />
             <StyledLanding>
                 <FoodSection>
-                    <Title>Sugen på </Title>
                     <Title>
+                        Sugen på <br />
                         <LangosSpan> FUCKING </LangosSpan>langos?
                     </Title>
 
@@ -123,11 +133,11 @@ const Landing = () => {
                 </FoodSection>
 
                 <DrinkSection>
-                    <Title>Sugen på</Title>
-                    <Title>
+                    <Title2>
+                        Sugen på <br />
                         <DrinkSpan> FUCKING</DrinkSpan> bärs?
-                    </Title>
-                    <img src={drinkImage} alt="Drinks" />
+                    </Title2>
+                    <FoodImage src={drinkImage} alt="Drinks" />
 
                     <Row>
                         <Line />
