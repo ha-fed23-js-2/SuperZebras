@@ -1,41 +1,41 @@
 #root {
-	max-width: 800px;
-	margin: 0 auto;
-	text-align: center;
-	display: flex;
-	flex-direction: row;
-	height: 100%;
-	background: var(--main-color);
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    background: var(--main-color);
 }
 
 * {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-	background-color: rgb(38, 37, 37);
-	color: rgb(232, 218, 218);
-	line-height: 1.35rem;
-	margin: 0;
-	padding: 0;
+    background-color: var(--secondary-color);
+    color: rgb(232, 218, 218);
+    line-height: 1.35rem;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
-	margin: 0 auto;
-	padding: 2rem;
+    margin: 0 auto;
+    padding: 2rem;
 }
 
 .mainContent {
-	width: 100vw;
-	max-width: 800px;
+    width: 100vw;
+    max-width: 800px;
 }
 
 .admin {
-	text-align: center;
-	background: var(--main-color);
-	padding: 2rem;
+    text-align: center;
+    background: var(--main-color);
+    padding: 2rem;
 }
 
 .errorMsg {
-	padding-top: 2rem;
+    padding-top: 2rem;
 }

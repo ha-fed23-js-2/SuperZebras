@@ -19,7 +19,7 @@ const HamburgerLine = styled.img`
 const Overlay = styled.div`
     position: fixed;
     top: 0;
-    width: 90%;
+    width: 100%;
     max-width: 750px;
     height: 100vh;
     background-color: var(--main-color);

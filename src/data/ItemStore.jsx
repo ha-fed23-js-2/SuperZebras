@@ -12,3 +12,9 @@ export const useItemStore = create((set) => ({
 	images: img.getState().images,
 	setImages: (imgs) => set({ images: imgs }),
 }));
+
+export const useOverlayStore = create((set) => ({
+	overlayVisible: false,
+	toggleOverlay: () => set((state) => ({ overlayVisible: !state.overlayVisible })),
+  }));
+  
