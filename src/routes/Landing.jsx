@@ -77,7 +77,7 @@ const FooterSection = styled.footer`;
 
 const Line = styled.hr`
 boder:none;
-margin: 2rem; 
+margin: 1rem; 
 flex-grow: 2;
 `;
 
