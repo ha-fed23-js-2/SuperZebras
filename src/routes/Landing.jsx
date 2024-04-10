@@ -78,9 +78,9 @@ const H6 = styled.h6`
 `;
 
 const Line = styled.hr`
-    boder: none;
-    margin: 2rem;
-    flex-grow: 2;
+boder:none;
+margin: 1rem; 
+flex-grow: 2;
 `;
 
 const DrinkText = styled.div`
