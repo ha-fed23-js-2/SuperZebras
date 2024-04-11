@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import yourOrderLogo from "../../assets/img/your-order.svg";
+import yourOrderLogo from "../../assets/img/your-cart-img.svg";
 
 const YourOrderContainer = styled.div`
-  width: 35px;
-  position: absolute;
+  width: 50px;
+  position: relative;
   height: auto;
-  bottom: -60px;
-  left: 0;
+  // padding-right: 20px;
+
 `;
 
 const YourOrderLogo = styled.img`
-  width: 35px;
+  width: 50px;
   position: relative;
   background: var(--main-color);
   border-radius: 100%;

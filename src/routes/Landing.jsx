@@ -58,7 +58,7 @@ const DrinkSpan = styled.span`
 `;
 
 const FoodImage = styled.img`
-    width: 70%;
+    width: 200px;
     margin: 1em auto;
 `;
 
@@ -67,6 +67,8 @@ const FoodSection = styled(Section)`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
+    padding: 0 20px;
 `;
 
 const DrinkSection = styled(Section)`
@@ -78,6 +80,7 @@ const DrinkSection = styled(Section)`
     background-repeat: no-repeat;
     background-position: top;
     padding-top: 200px;
+    padding: 200px 20px;
 `;
 const FooterSection = styled.footer`
     color: var(--compliment-color);
@@ -107,6 +110,16 @@ const Row = styled.div`
     align-items: center;
 `;
 
+const DrinkSectionBg = styled.div`
+background-color: var(--secondary-color);
+    background-image: url(${sectionBg});
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    padding-top: 200px;
+    width: 100%;
+    `
+
 const Landing = () => {
     const randomFact = facts[Math.floor(Math.random() * facts.length)];
     const factString = randomFact.fact;
@@ -131,20 +144,21 @@ const Landing = () => {
                         <Line />
                     </Row>
                 </FoodSection>
+                <DrinkSectionBg>
+                    <DrinkSection>
+                        <Title2>
+                            Sugen på <br />
+                            <DrinkSpan> FUCKING</DrinkSpan> bärs?
+                        </Title2>
+                        <FoodImage src={drinkImage} alt="Drinks" />
 
-                <DrinkSection>
-                    <Title2>
-                        Sugen på <br />
-                        <DrinkSpan> FUCKING</DrinkSpan> bärs?
-                    </Title2>
-                    <FoodImage src={drinkImage} alt="Drinks" />
-
-                    <Row>
-                        <Line />
-                        <DrinkText>drinks</DrinkText>
-                        <Line />
-                    </Row>
-                </DrinkSection>
+                        <Row>
+                            <Line />
+                            <DrinkText >drinks</DrinkText>
+                            <Line />
+                        </Row>
+                    </DrinkSection>
+                </DrinkSectionBg>
 
                 <RandomFact>{factString}</RandomFact>
                 <Subtitle></Subtitle>
