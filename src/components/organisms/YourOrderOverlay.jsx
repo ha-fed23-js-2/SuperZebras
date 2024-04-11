@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useOverlayStore } from "../../data/ItemStore";
-import logo from "../../assets/img/andra-longos-light-logo.svg";
+import logo from "../../assets/img/test-logo-img.svg";
 import hamburgerLine from "../../assets/img/hamburger-line.svg";
 // import Button from "../atoms/Button";
 
@@ -14,7 +14,9 @@ const OverlayContainer = styled.div`
     height: 100vh;
     background-color: var(--compliment-color);
     z-index: 2000;
-    display: ${(props) => (props.$visible ? "block" : "none")};
+    opacity: ${(props) => (props.$visible ? 1 : 0)};
+    pointer-events: ${(props) => (props.$visible ? "auto" : "none")};
+    transition: opacity 0.2s ease-in-out; 
 `;
 
 const ContentContainer = styled.div`
@@ -45,16 +47,16 @@ const StyledBurger = styled.div`
 `;
 
 const HamburgerLine = styled.img`
-    width: 50px;
+    width: 35px;
     height: auto;
     &:nth-child(2) {
         display: none; /* Hide the middle line */
     }
     &:first-child {
-        transform: rotate(-45deg) translate(-6px, 6px);
+        transform: rotate(-45deg) translate(-5px, 5px);
     }
     &:last-child {
-        transform: rotate(45deg) translate(-6px, -6px);
+        transform: rotate(45deg) translate(-3px, -3px);
     }
 `;
 
@@ -70,12 +72,13 @@ const OrderSum = styled.div`
 `;
 
 const OrderTitleContainer = styled.div`
-    margin-top: 2em;`;
+    margin-top: 2em;
+`;
 const OrderSumContainer = styled.div`
     margin-top: auto;
 `;
 
-const YourOrderSection = styled.section``
+const YourOrderSection = styled.section``;
 
 const Divider = styled.div`
     background-color: var(--secondary-color);
@@ -83,7 +86,6 @@ const Divider = styled.div`
     width: 100%;
     margin: 0 auto;
 `;
-
 
 export default function YourOrderOverlay() {
     const overlayVisible = useOverlayStore((state) => state.overlayVisible);
@@ -108,7 +110,7 @@ export default function YourOrderOverlay() {
                     <OrderTitle>Your Order</OrderTitle>
                     <Divider></Divider>
                 </OrderTitleContainer>
-                <YourOrderSection/> 
+                <YourOrderSection />
                 <OrderTitle></OrderTitle>
                 {/* TODO: Insert from API Here */}
                 <OrderSumContainer>

@@ -8,10 +8,11 @@ const StyledBurger = styled.div`
     cursor: pointer;
     gap: 3px;
     z-index: 1000;
+    padding: 20px;
 `;
 
 const HamburgerLine = styled.img`
-    width: 50px;
+    width: 35px;
     height: auto;
     transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
 `;
@@ -20,13 +21,13 @@ const Overlay = styled.div`
     position: fixed;
     top: 0;
     width: 100%;
-    max-width: 750px;
+    max-width: 800px;
     height: 100vh;
     background-color: var(--main-color);
     z-index: 999;
-    display: ${(props) => (props.$isVisible ? "block" : "none")};
-    transition: opacity 0.3s ease-in-out;
     opacity: ${(props) => (props.$isVisible ? 1 : 0)};
+    pointer-events: ${(props) => (props.$isVisible ? "auto" : "none")};
+    transition: opacity 0.3s ease-in-out;
 `;
 
 const StyledUl = styled.ul `
@@ -72,7 +73,7 @@ export default function Hamburger() {
                     src={hamburgerLine}
                     style={{
                         transform: isOpen
-                            ? "rotate(-45deg) translate(-11px, 11px)"
+                            ? "rotate(-45deg) translate(-6px, 6px)"
                             : "none",
                     }}
                 />
