@@ -29,16 +29,20 @@ const Logo = styled.img`
 
 const MumsMenu = () => {
 	// const { loadTheFoodPlease } = useMenuStore()
-
+	const { addDrinkItem, addFoodItem } = useLangosStore()
 	const [menuItems, setMenuItems] = useState([]);
 	const [drinkItems, setDrinkItems] = useState([]);
 	const [category, setCategory] = useState("");
+	const drinks = useLangosStore(state => state.drinkItems)
 
 	const addMenuItem = (newMenuItem) => {
+		console.log(JSON.stringify(newMenuItem));
 		if (category === "Food") {
 			setMenuItems((prevMenuItems) => [...prevMenuItems, newMenuItem]);
+			addFoodItem(newMenuItem)
 		} else  {
 			setDrinkItems((prevDrinkItems) => [...prevDrinkItems, newMenuItem]);
+			addDrinkItem(newMenuItem)
 		}
 	};
 	const saveTheFoodPlease = async () => {
