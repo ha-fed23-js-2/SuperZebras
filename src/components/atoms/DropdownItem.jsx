@@ -4,8 +4,8 @@ import { useItemStore } from "../../data/ItemStore";
 
 const StyledImg = styled.img`
 	display: flex;
-	width: 50%;
-	padding-block: 1rem;
+	margin: 0 auto;
+	width: 95%;
 	flex-direction: column;
 	justify-content: center;
 	overflow: hidden;
@@ -14,7 +14,7 @@ const StyledImg = styled.img`
 // in case we want to style them, keeping for brevity :)
 const Item = styled.div`
 	font-size: 1rem;
-	margin-bottom: 1rem;
+	// margin-bottom: 0 auto;
 	padding: 0.35rem;
 	transition: text-shadow 0.15s 0.01s, transform 0.15s 0.01s;
 	background: var(--secondary-color);
