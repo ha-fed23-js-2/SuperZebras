@@ -26,19 +26,7 @@ const Logo = styled.img`
 	margin-bottom: 20px;
 `;
 
-const StyledButton = styled.button`
-	border-radius: var(--border-radius);
-	color: var(--complment-color);
-	background-color: var(--secondary-color);
-	padding: 0.15rem 0.15rem;
-	width: 30%;
-	margin: 0 auto;
-	font-size: var(--font-med-small);
-	font-family: var(--font-family);
-	color: var(--compliment-color);
-	box-shadow: var(--shadow);
-	margin: 0 auto;
-`;
+
 const MumsMenu = () => {
 	const [menuItems, setMenuItems] = useState([]);
 	const [drinkItems, setDrinkItems] = useState([]);
@@ -64,7 +52,8 @@ const MumsMenu = () => {
 		<StyledMumsMenu>
 			<Logo src={logo} alt="logo" />
 			<MenuItemForm addMenuItem={addMenuItem} />
-			<StyledButton type="submit"> Lägg till </StyledButton>
+			<button onClick={saveTheFoodPlease}> spara</button>
+			<button onClick={loadTheFoodPlease}> ladda </button>
 		</StyledMumsMenu>
 	);
 };
