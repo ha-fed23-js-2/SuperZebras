@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import Dropdown from "./DropDownMenuImg";
+import { saveFoodToApi } from "./apiConnection";
 
 const StyledForm = styled.div`
 	// height: 15%;
@@ -42,6 +43,9 @@ const StyledButton = styled.button`
 	color: var(--compliment-color);
 	box-shadow: var(--shadow);
 	margin: 0 auto;
+	opacity: ${({ disabled }) => disabled ? '0.5' : '1'};
+    cursor: ${({ disabled }) => disabled ? 'not-allowed' : 'pointer'};
+    pointer-events: ${({ disabled }) => disabled ? 'none' : 'auto'};
 `;
 
 const MenuItemForm = ({ addMenuItem }) => {
@@ -49,6 +53,10 @@ const MenuItemForm = ({ addMenuItem }) => {
 	const [ingredients, setIngredients] = useState("");
 	const [price, setPrice] = useState("");
 	const [image, setImage] = useState("");
+	const [formValid, setFormValid] = useState(false);
+	useEffect(() => {
+		setFormValid(name !== "" && ingredients !== "" && price !== "");
+	}, [name, ingredients, price]);
 	const submitHandler = (e) => {
 		e.preventDefault();
 		const newMenuItem = {
@@ -62,7 +70,9 @@ const MenuItemForm = ({ addMenuItem }) => {
 		setIngredients("");
 		setPrice("");
 		setImage("");
+		// setTimeout(saveTheFoodPlease, 30)
 	};
+
 	return (
 		<StyledForm>
 			<form onSubmit={submitHandler}>
@@ -90,7 +100,7 @@ const MenuItemForm = ({ addMenuItem }) => {
 					<StyledP>Bild</StyledP>
 					{/* todo: get img src from json */}
 					<Dropdown onChange={(e) => setImage(e.target.value)} />
-                    <StyledButton type="submit"> Lägg till </StyledButton>
+                    <StyledButton type="submit" disabled={!formValid}> Lägg till </StyledButton>
 				</label>
 			</form>
 		</StyledForm>

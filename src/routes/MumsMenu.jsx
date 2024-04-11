@@ -52,7 +52,7 @@ const MumsMenu = () => {
 		<StyledMumsMenu>
 			<Logo src={logo} alt="logo" />
 			<MenuItemForm addMenuItem={addMenuItem} />
-			<button onClick={saveTheFoodPlease}> spara</button>
+			{/* <button onClick={saveTheFoodPlease}> spara</button> */}
 			<button onClick={loadTheFoodPlease}> ladda </button>
 		</StyledMumsMenu>
 	);
