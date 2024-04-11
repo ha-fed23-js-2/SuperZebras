@@ -64,7 +64,9 @@ const MumsMenu = () => {
 		<StyledMumsMenu>
 			<Logo src={logo} alt="logo" />
 			<MenuItemForm addMenuItem={addMenuItem} />
-			<StyledButton type="submit"> Lägg till </StyledButton>
+			<StyledButton type="button" onClick={saveTheFoodPlease}>
+				Spara
+			</StyledButton>
 		</StyledMumsMenu>
 	);
 };
