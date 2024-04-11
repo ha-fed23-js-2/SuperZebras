@@ -49,12 +49,12 @@ const Section = styled.section`
 
 const LangosSpan = styled.span`
     color: var(--secondary-color);
-    font-size: var(--font-normal);
+    font-size: var(--font-med-small);
 `;
 
 const DrinkSpan = styled.span`
     color: var(--compliment-color);
-    font-size: var(--font-normal);
+    // font-size: var(--font-normal);
 `;
 
 const FoodImage = styled.img`
@@ -133,7 +133,7 @@ const Landing = () => {
                 <FoodSection>
                     <Title>
                         Sugen på <br />
-                        <LangosSpan> FUCKING </LangosSpan>langos?
+                        <LangosSpan> fucking </LangosSpan>langos?
                     </Title>
 
                     <FoodImage src={LangosImage} alt="Langos" />

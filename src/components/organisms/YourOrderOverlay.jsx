@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useOverlayStore } from "../../data/ItemStore";
-import logo from "../../assets/img/andra-longos-light-logo.svg";
+import logo from "../../assets/img/test-logo-img.svg";
 import hamburgerLine from "../../assets/img/hamburger-line.svg";
 // import Button from "../atoms/Button";
 
@@ -14,7 +14,9 @@ const OverlayContainer = styled.div`
     height: 100vh;
     background-color: var(--compliment-color);
     z-index: 2000;
-    display: ${(props) => (props.$visible ? "block" : "none")};
+    opacity: ${(props) => (props.$visible ? 1 : 0)};
+    pointer-events: ${(props) => (props.$visible ? "auto" : "none")};
+    transition: opacity 0.2s ease-in-out; 
 `;
 
 const ContentContainer = styled.div`

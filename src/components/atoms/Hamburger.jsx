@@ -25,9 +25,9 @@ const Overlay = styled.div`
     height: 100vh;
     background-color: var(--main-color);
     z-index: 999;
-    display: ${(props) => (props.$isVisible ? "block" : "none")};
-    transition: opacity 0.3s ease-in-out;
     opacity: ${(props) => (props.$isVisible ? 1 : 0)};
+    pointer-events: ${(props) => (props.$isVisible ? "auto" : "none")};
+    transition: opacity 0.3s ease-in-out;
 `;
 
 const StyledUl = styled.ul `

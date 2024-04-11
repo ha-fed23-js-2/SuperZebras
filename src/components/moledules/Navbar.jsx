@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Hamburger from "../atoms/Hamburger";
-import logo from "../../assets/img/andra-longos-light-logo.svg";
+import logo from "../../assets/img/test-logo-img.svg";
 import YourOrder from "../atoms/YourOrder";
-import sectionBg from "../../assets/img/section-bg-png.png";
+// import sectionBg from "../../assets/img/section-bg-png.png";
 
 import { useOverlayStore } from "../../data/ItemStore";
 
@@ -13,7 +13,7 @@ const StyledNavbar = styled.nav`
     position: sticky;
     top: 0;
     background-color: var(--main-color);
-
+    border-radius: 0 0 20px 20px;
     // with: 100%;
 `;
 
@@ -23,13 +23,15 @@ const StyledUl = styled.ul`
     align-items: center;
     position: relative;
     // padding:20px;
+    padding-top: 10px;
 `;
 
 const Logo = styled.img`
-    width: 100px;
+    width: 120px;
     height: auto;
     z-index: 3000;
     padding-left: 20px;
+    // padding-top: 20px;
 `;
 
 export default function Navbar() {
