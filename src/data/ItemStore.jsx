@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import images from "./menu-img.json";
+import { saveFoodToApi, loadFoodFromApi } from "../components/atoms/apiConnection";
 
 // export default ItemStore;
 
@@ -18,3 +19,41 @@ export const useOverlayStore = create((set) => ({
 	toggleOverlay: () => set((state) => ({ overlayVisible: !state.overlayVisible })),
   }));
   
+// export const useMenuStore = create((set) => ({
+// 	menuItems: [],
+// 	drinkItems: [],
+// 	category: "",
+// 	setCategory: (category) => set({category}),
+// 	addMenuItem: (newMenuItem) => set((state) => {
+// 		if (state.category === "Food") {
+// 			return {menuItems: [...state.menuItems, newMenuItem]}
+// 		} else if (state.category === "Drinks") {
+// 			return { drinkItems: [...state.drinkItems, newMenuItem]}
+// 		}
+// 	}),
+// 	saveTheFoodPlease: async () => {
+// 		const state = useMenuStore.getState()
+// 		const foodAndDrinks = {
+// 			food: state.menuItems,
+// 			drinks: state.drinkItems
+// 		}
+// 		await saveFoodToApi(foodAndDrinks)
+// 	},
+// 	loadTheFoodPlease: async () => {
+// 		const data = await loadFoodFromApi()
+// 		set({
+// 			menuItems: data.food,
+// 			drinkItems: data.drinks})
+// 	}
+// }))
+
+export const useLangosStore = create(set => ({
+	drinkItems : [],
+	foodItems: [],
+	addDrinkItem: (drinkItem) => set(state => ({
+		drinkItems: [...state.drinkItems, drinkItem]
+	})),
+	addFoodItem: (foodItem) => set(state => ({
+		foodItems: [...state.foodItems, foodItem]
+	}))
+}))

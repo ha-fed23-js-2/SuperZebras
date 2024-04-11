@@ -56,28 +56,32 @@ const Container = styled.div`
 `;
 
 const MenuItemForm = ({ addMenuItem }) => {
+	// const store = useMenuStore()
+	// console.log(store)
+	// const { addMenuItem, } = useMenuStore()
 	const [name, setName] = useState("");
 	const [ingredients, setIngredients] = useState("");
 	const [price, setPrice] = useState("");
 	const [image, setImage] = useState("");
+	const [category, setCategory] = useState("");
 	const [formValid, setFormValid] = useState(false);
 	useEffect(() => {
 		setFormValid(name !== "" && ingredients !== "" && price !== "");
 	}, [name, ingredients, price]);
-	const submitHandler = (e) => {
+	const submitHandler = async (e) => {
 		e.preventDefault();
 		const newMenuItem = {
 			name,
 			ingredients,
 			price,
 			image,
+			category,
 		};
 		addMenuItem(newMenuItem);
 		setName("");
 		setIngredients("");
 		setPrice("");
 		setImage("");
-		// setTimeout(saveTheFoodPlease, 30)
 	};
 
 	return (
