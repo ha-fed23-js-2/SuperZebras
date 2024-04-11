@@ -50,7 +50,7 @@ const Dropdowns = styled.div`
 	flex-direction: row;
 	margin: 0 auto;
 	justify-content: center;
-	gap: 3rem;
+	gap: 5rem;
 	align-items: center;
 `;
 
@@ -67,7 +67,6 @@ const Dropdown = () => {
 	};
 
 	const [category, setCategory] = useState("Food");
-
 	return (
 		<Dropdowns>
 			<DropdownMenu onClick={toggle} style={{ height: open ? "100%" : "118px" }}>
@@ -76,18 +75,23 @@ const Dropdown = () => {
 				</div>
 			</DropdownMenu>
 
-			{/* render food/drink divs only when open; when closed only render whatever category currently is selected */}
 			<DropDownMenuCategory onClick={toggleCat} style={{ height: openCat ? "max-content" : "3rem" }}>
 				{openCat ? (
 					<>
 						<div
 							style={{ display: "flex", justifyContent: "space-between", overflow: "hidden", margin: "0 auto" }}
-							onClick={() => setCategory("Food")}>
+							onClick={(e) => {
+								e.stopPropagation();
+								setCategory("Food");
+							}}>
 							Food
 						</div>
 						<div
 							style={{ display: "flex", justifyContent: "space-between", overflow: "hidden", margin: "0 auto" }}
-							onClick={() => setCategory("Drinks")}>
+							onClick={(e) => {
+								e.stopPropagation();
+								setCategory("Drinks");
+							}}>
 							Drinks
 						</div>
 					</>
