@@ -48,6 +48,13 @@ const StyledButton = styled.button`
     pointer-events: ${({ disabled }) => disabled ? 'none' : 'auto'};
 `;
 
+const Container = styled.div`
+	display: flex;
+	flex-direction: row;
+	gap: 3rem;
+	justify-content: center;
+`;
+
 const MenuItemForm = ({ addMenuItem }) => {
 	const [name, setName] = useState("");
 	const [ingredients, setIngredients] = useState("");
@@ -97,7 +104,10 @@ const MenuItemForm = ({ addMenuItem }) => {
 				</label>
 				{/* bara en placeholder tills logik för bildurlen */}
 				<label>
-					<StyledP>Bild</StyledP>
+					<Container>
+						<StyledP>Bild:</StyledP>
+						<StyledP>Kategori:</StyledP>
+					</Container>
 					{/* todo: get img src from json */}
 					<Dropdown onChange={(e) => setImage(e.target.value)} />
                     <StyledButton type="submit" disabled={!formValid}> Lägg till </StyledButton>

@@ -26,16 +26,16 @@ const Logo = styled.img`
 	margin-bottom: 20px;
 `;
 
-
 const MumsMenu = () => {
 	const [menuItems, setMenuItems] = useState([]);
 	const [drinkItems, setDrinkItems] = useState([]);
+	const [category, setCategory] = useState("");
 
 	const addMenuItem = (newMenuItem) => {
-		if (newMenuItem.type === "food") {
-			setMenuItems([...menuItems, newMenuItem]);
-		} else {
-			setDrinkItems([...drinkItems, newMenuItem]);
+		if (category === "Food") {
+			setMenuItems((prevMenuItems) => [...prevMenuItems, newMenuItem]);
+		} else if (category === "Drinks") {
+			setDrinkItems((prevDrinkItems) => [...prevDrinkItems, newMenuItem]);
 		}
 	};
 	const saveTheFoodPlease = async () => {
