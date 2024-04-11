@@ -10,83 +10,12 @@
 			"img": "src/assets/img/menu-imgs/item__food3.svg"
 		},
 		{
+			"img": "src/assets/img/menu-imgs/item__food4.svg"
+		},
+		{
 			"img": "src/assets/img/menu-imgs/ny_meny1.svg"
 		},
-		{
-			"img": "src/assets/img/menu-imgs/ny_meny2.svg"
-		},
-		{
-			"img": "src/assets/img/menu-imgs/ny_meny3.svg"
-		},
-		{
-			"img": "src/assets/img/menu-imgs/ny_meny4.svg"
-		},
-		{
-			"img": "src/assets/img/menu-imgs/ny_meny5.svg"
-		},
-		{
-			"img": "src/assets/img/menu-imgs/ny_meny6.svg"
-		},
-		{
-			"img": "src/assets/img/menu-imgs/ny_meny7.svg"
-		},
-		{
-			"img": "src/assets/img/menu-imgs/ny_meny8.svg"
-		},
-		{
-			"img": "src/assets/img/menu-imgs/ny_meny9.svg"
-		},
-		{
-			"img": "src/assets/img/menu-imgs/ny_meny10.svg"
-		},
-		{
-			"img": "src/assets/img/menu-imgs/ny_meny11.svg"
-		},
-		{
-			"img": "src/assets/img/menu-imgs/ny_meny12.svg"
-		},
-		{
-			"img": "src/assets/img/menu-imgs/ny_meny13.svg"
-		},
-		{
-			"img": "src/assets/img/menu-imgs/ny_meny14.svg"
-		},
-		{
-			"img": "src/assets/img/menu-imgs/ny_meny15.svg"
-		},
-		{
-			"img": "src/assets/img/menu-imgs/ny_meny16.svg"
-		},
-		{
-			"img": "src/assets/img/menu-imgs/ny_meny17.svg"
-		},
-		{
-			"img": "src/assets/img/menu-imgs/ny_meny18.svg"
-		},
-		{
-			"img": "src/assets/img/menu-imgs/ny_meny19.svg"
-		},
-		{
-			"img": "src/assets/img/menu-imgs/ny_meny20.svg"
-		},
-		{
-			"img": "src/assets/img/menu-imgs/ny_meny21.svg"
-		},
-		{
-			"img": "src/assets/img/menu-imgs/ny_meny22.svg"
-		},
-		{
-			"img": "src/assets/img/menu-imgs/ny_meny23.svg"
-		},
-		{
-			"img": "src/assets/img/menu-imgs/ny_meny24.svg"
-		},
-		{
-			"img": "src/assets/img/menu-imgs/ny_meny25.svg"
-		},
-		{
-			"img": "src/assets/img/menu-imgs/item__drink1.svg"
-		},
+
 		{
 			"img": "src/assets/img/menu-imgs/item__drink2.svg"
 		},

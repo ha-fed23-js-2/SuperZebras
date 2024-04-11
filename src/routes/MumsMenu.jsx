@@ -2,7 +2,7 @@ import { useState } from "react";
 import MenuItemForm from "../components/atoms/MenuItemFormInput";
 import styled from "styled-components";
 import logo from "../assets/img/andra-longos-light-logo.svg";
-import RenderMenuItem from "../components/organisms/RenderMenuItem"
+import RenderMenuItem from "../components/organisms/RenderMenuItem";
 import { saveFoodToApi, loadFoodFromApi } from "../components/atoms/apiConnection";
 
 const StyledMumsMenu = styled.section`
@@ -26,33 +26,45 @@ const Logo = styled.img`
 	margin-bottom: 20px;
 `;
 
+const StyledButton = styled.button`
+	border-radius: var(--border-radius);
+	color: var(--complment-color);
+	background-color: var(--secondary-color);
+	padding: 0.15rem 0.15rem;
+	width: 30%;
+	margin: 0 auto;
+	font-size: var(--font-med-small);
+	font-family: var(--font-family);
+	color: var(--compliment-color);
+	box-shadow: var(--shadow);
+	margin: 0 auto;
+`;
 const MumsMenu = () => {
 	const [menuItems, setMenuItems] = useState([]);
 	const [drinkItems, setDrinkItems] = useState([]);
-  
+
 	const addMenuItem = (newMenuItem) => {
-	  if (newMenuItem.type === "food") {
-		setMenuItems([...menuItems, newMenuItem]);
-	  } else {
-		setDrinkItems([...drinkItems, newMenuItem]);
-	  }
+		if (newMenuItem.type === "food") {
+			setMenuItems([...menuItems, newMenuItem]);
+		} else {
+			setDrinkItems([...drinkItems, newMenuItem]);
+		}
 	};
 	const saveTheFoodPlease = async () => {
 		const foodAndDrinks = {
-		  food: menuItems,
-		  drinks: drinkItems
+			food: menuItems,
+			drinks: drinkItems,
 		};
-		await saveFoodToApi(foodAndDrinks)
-	}
-	const loadTheFoodPlease = async() => {
-		await loadFoodFromApi()
-	}
+		await saveFoodToApi(foodAndDrinks);
+	};
+	const loadTheFoodPlease = async () => {
+		await loadFoodFromApi();
+	};
 	return (
 		<StyledMumsMenu>
 			<Logo src={logo} alt="logo" />
 			<MenuItemForm addMenuItem={addMenuItem} />
-			<button onClick={saveTheFoodPlease}> Spara </button>
-			<button onClick={loadTheFoodPlease}> Ladda </button>
+			<StyledButton type="submit"> Lägg till </StyledButton>
 		</StyledMumsMenu>
 	);
 };
