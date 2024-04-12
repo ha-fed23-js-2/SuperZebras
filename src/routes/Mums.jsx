@@ -8,8 +8,15 @@ const StyledMums = styled.div`
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	height: 100%;
+	height: 100vh;
 	font-size: var(--font-med);
+`;
+const Logo = styled.img`
+	align-self: center;
+	width: 200px;
+	height: auto;
+	margin-top: 286px;
+	margin-bottom: 20px;
 `;
 
 const Mums = () => {
@@ -37,7 +44,7 @@ const Mums = () => {
 
 	return (
 		<StyledMums>
-			<img src={logo} alt="Logo" />
+			<Logo src={logo} alt="Logo" />
 			<section className="admin">{errorMsg}</section>
 			<PasswordInput
 				type="password"

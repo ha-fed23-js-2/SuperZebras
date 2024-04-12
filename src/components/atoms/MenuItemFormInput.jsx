@@ -42,7 +42,6 @@ const StyledButton = styled.button`
 	font-family: var(--font-family);
 	color: var(--compliment-color);
 	box-shadow: var(--shadow);
-	margin: 0 auto;
 	opacity: ${({ disabled }) => disabled ? '0.5' : '1'};
     cursor: ${({ disabled }) => disabled ? 'not-allowed' : 'pointer'};
     pointer-events: ${({ disabled }) => disabled ? 'none' : 'auto'};

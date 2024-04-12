@@ -3,7 +3,12 @@ import Button from "../atoms/Button";
 import FormInput from "../atoms/FormInput";
 import PropTypes from "prop-types";
 
-const Container = styled.div``;
+const Container = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+`;
 
 const PasswordInput = ({ type, placeholder, value, onChange, onSubmit }) => (
 	<Container>

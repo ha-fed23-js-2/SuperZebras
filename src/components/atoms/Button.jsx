@@ -5,12 +5,11 @@ import PropTypes from "prop-types";
 const StyledButton = styled.button`
 	margin: 1.35rem;
 	border-radius: var(--border-radius);
-	color: white;
 	background-color: var(--cta-color);
 	border-radius: var(--border-radius);
 	color: var(--compliment-color);
-	padding: 1.35rem 1rem;
-	width: 100;
+	padding: 0 0.5rem;
+	// width: 40%;
 	font-size: var(--font-med-small);
 	font-family: var(--font-family);
 	box-shadow: var(--shadow);
