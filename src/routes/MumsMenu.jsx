@@ -2,7 +2,8 @@ import { useState } from "react";
 import MenuItemForm from "../components/atoms/MenuItemFormInput";
 import styled from "styled-components";
 import logo from "../assets/img/andra-longos-light-logo.svg";
-import RenderMenuItem from "../components/organisms/RenderMenuItem"
+import RenderMenuItem from "../components/organisms/RenderMenuItem";
+import { saveFoodToApi, loadFoodFromApi } from "../components/atoms/apiConnection";
 
 const StyledMumsMenu = styled.section`
 	display: flex;
@@ -27,14 +28,32 @@ const Logo = styled.img`
 
 const MumsMenu = () => {
 	const [menuItems, setMenuItems] = useState([]);
+	const [drinkItems, setDrinkItems] = useState([]);
+	const [category, setCategory] = useState("");
+
 	const addMenuItem = (newMenuItem) => {
-		const updatedMenuItems = [...menuItems, newMenuItem];
-		setMenuItems(updatedMenuItems);
+		if (category === "Food") {
+			setMenuItems((prevMenuItems) => [...prevMenuItems, newMenuItem]);
+		} else if (category === "Drinks") {
+			setDrinkItems((prevDrinkItems) => [...prevDrinkItems, newMenuItem]);
+		}
+	};
+	const saveTheFoodPlease = async () => {
+		const foodAndDrinks = {
+			food: menuItems,
+			drinks: drinkItems,
+		};
+		await saveFoodToApi(foodAndDrinks);
+	};
+	const loadTheFoodPlease = async () => {
+		await loadFoodFromApi();
 	};
 	return (
 		<StyledMumsMenu>
 			<Logo src={logo} alt="logo" />
 			<MenuItemForm addMenuItem={addMenuItem} />
+			<button onClick={saveTheFoodPlease}> spara</button>
+			<button onClick={loadTheFoodPlease}> ladda </button>
 		</StyledMumsMenu>
 	);
 };
