@@ -36,7 +36,6 @@ const MumsMenu = () => {
 	const drinks = useLangosStore(state => state.drinkItems)
 
 	const addMenuItem = (newMenuItem) => {
-		console.log(JSON.stringify(newMenuItem));
 		if (category === "Food") {
 			setMenuItems((prevMenuItems) => [...prevMenuItems, newMenuItem]);
 			addFoodItem(newMenuItem)
