@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import yourOrderLogo from "../../assets/img/your-cart-img.svg";
+import yourOrderLogo from "../../assets/img/your-order-img.svg";
 
 const YourOrderContainer = styled.div`
-  width: 50px;
+  width: 35px;
   position: relative;
   height: auto;
   // padding-right: 20px;
@@ -11,10 +11,10 @@ const YourOrderContainer = styled.div`
 `;
 
 const YourOrderLogo = styled.img`
-  width: 50px;
+  width: 35px;
   position: relative;
-  background: var(--main-color);
-  border-radius: 100%;
+  // background: var(--main-color);
+  // border-radius: 100%;
 `;
 
 const YourOrderValueContainer = styled.div`

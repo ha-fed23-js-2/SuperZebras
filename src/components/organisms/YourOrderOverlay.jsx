@@ -17,6 +17,8 @@ const OverlayContainer = styled.div`
     opacity: ${(props) => (props.$visible ? 1 : 0)};
     pointer-events: ${(props) => (props.$visible ? "auto" : "none")};
     transition: opacity 0.2s ease-in-out; 
+    padding-top: 10px;
+
 `;
 
 const ContentContainer = styled.div`
@@ -25,7 +27,7 @@ const ContentContainer = styled.div`
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-    padding: 20px;
+    padding:  0 20px;
     color: var(--secondary-color); /* Set the color */
 `;
 const NavContainer = styled.div`

@@ -5,10 +5,13 @@ import hamburgerLine from "../../assets/img/hamburger-line.svg";
 const StyledBurger = styled.div`
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
     cursor: pointer;
     gap: 3px;
     z-index: 1000;
-    padding: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+    // padding-top: 10px;
 `;
 
 const HamburgerLine = styled.img`
@@ -28,6 +31,7 @@ const Overlay = styled.div`
     opacity: ${(props) => (props.$isVisible ? 1 : 0)};
     pointer-events: ${(props) => (props.$isVisible ? "auto" : "none")};
     transition: opacity 0.3s ease-in-out;
+    padding-top: 10px;
 `;
 
 const StyledUl = styled.ul `
