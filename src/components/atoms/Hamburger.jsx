@@ -5,11 +5,12 @@ import hamburgerLine from "../../assets/img/hamburger-line.svg";
 const StyledBurger = styled.div`
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
     cursor: pointer;
     gap: 3px;
     z-index: 1000;
     padding-right: 20px;
-    margin-left: 20px;
+    padding-left: 20px;
     // padding-top: 10px;
 `;
 

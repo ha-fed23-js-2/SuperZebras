@@ -63,7 +63,7 @@ button {
 
 h1 {
     letter-spacing: 4px;
-    color: var(--compliment-color);
+    /* color: var(--compliment-color); */
     padding: 1rem;
 }
 
@@ -103,12 +103,12 @@ span.Langos {
     flex-grow: calc(1rem 1rem);
 }
 
-span.DrinkSpan {
+/* span.DrinkSpan {
     color: var(--secondary-color);
     font-size: var(--font-med-smallsmall);
-}
+} */
 
-.FooterSection {
+/* .FooterSection {
     background-color: var(--compliment-color);
     color: var(--compliment-color_alpha);
-}
+} */

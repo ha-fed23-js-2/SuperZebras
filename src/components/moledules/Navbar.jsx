@@ -13,7 +13,7 @@ const StyledNavbar = styled.nav`
     position: sticky;
     top: 0;
     background-color: var(--main-color);
-    border-radius: 0 0 20px 20px;
+    // border-radius: 0 0 20px 20px;
     // with: 100%;
     padding-top: 10px;
     padding-bottom: 20px;
