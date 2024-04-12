@@ -30,26 +30,19 @@ const Item = styled.div`
 		border-radius: 10px;
 	}
 `;
-const DropDownItem = () => {
+const DropDownItem = ({ onImageSelect }) => {
 	const { images } = useItemStore();
-	const [selectedIndex, setSelectedIndex] = useState(0);
 
 	const handleSelect = (index) => {
-		setSelectedIndex(index);
+		const selectedImage = images[index];
+		onImageSelect(selectedImage.img); // Assuming you want to pass the image URL back
 	};
-
-	// we create a new array here and puts the selected item as the first index, followed by all the items in order.
-	const reorderedItems = [images.items[selectedIndex]].concat(
-		images.items.slice(0, selectedIndex),
-		images.items.slice(selectedIndex + 1)
-	);
 
 	return (
 		<Item>
-			{Array.isArray(reorderedItems) &&
-				reorderedItems.map((item, index) => (
-					<StyledImg key={index} src={item.img} alt={`image-menu-item-${index}`} onClick={() => handleSelect(index)} />
-				))}
+			{images.map((item, index) => (
+				<StyledImg key={index} src={item.img} alt={`image-menu-item-${index}`} onClick={() => handleSelect(index)} />
+			))}
 		</Item>
 	);
 };

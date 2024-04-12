@@ -1,8 +1,7 @@
-import PriceDisplay from "../moledules/menu/PriceDisplay";
 import MenuItem from "../moledules/menu/MenuItem";
-import ItemDisplay from "../moledules/menu/ItemDisplay";
 import styled from "styled-components";
-import PropTypes from "prop-types";
+import { useState, useEffect } from "react";
+import { loadFoodFromApi, deleteFoodFromApi } from "../atoms/apiConnection";
 
 const StyledMenuRender = styled.div`
 	display: flex;
@@ -17,19 +16,49 @@ const StyledMenuRender = styled.div`
 	box-sizing: border-box;
 `;
 
-const MenuRender = ({ selectedImg, title, desc, price }) => {
+const RenderMenuItem = ({ category }) => {
+	const [items, setItems] = useState([]);
+
+	useEffect(() => {
+		fetchData();
+	}, [category]); // Refetch when category changes
+
+	const fetchData = async () => {
+		try {
+			const result = await loadFoodFromApi();
+			if (result && (category === "food" || category === "drinks")) {
+				setItems(result[category]);
+			} else {
+				console.error("Unexpected category or result structure:", category, result);
+				setItems([]);
+			}
+		} catch (error) {
+			console.error("Error fetching data:", error);
+			setItems([]);
+		}
+	};
+
+	const handleDelete = async (index) => {
+		console.log("trying to delete: ", items[index]);
+		try {
+			await deleteFoodFromApi(index, category);
+			fetchData(); // Refetch items after deletion to update UI
+		} catch (error) {
+			console.error("Failed to delete item:", error);
+		}
+	};
 	return (
 		<StyledMenuRender>
-			{selectedImg && selectedImg.img && <ItemDisplay image={selectedImg.img} />}
-			<MenuItem title={title} desc={desc} price={price} />
+			{items.map((item, index) => (
+				<div key={index}>
+					<div>
+						<MenuItem image={item.image} title={item.name} ingredients={item.ingredients} price={item.price} />
+						<button onClick={() => handleDelete(index)}>Delete Item</button>
+					</div>
+				</div>
+			))}
 		</StyledMenuRender>
 	);
 };
 
-MenuRender.propTypes = {
-	selectedImg: PropTypes.object,
-	title: PropTypes.string.isRequired,
-	desc: PropTypes.string.isRequired,
-	price: PropTypes.string.isRequired,
-};
-export default MenuRender;
+export default RenderMenuItem;
