@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MenuItemForm from "../components/atoms/MenuItemFormInput";
 import styled from "styled-components";
 import logo from "../assets/img/andra-longos-light-logo.svg";
 import RenderMenuItem from "../components/organisms/RenderMenuItem";
 import { saveFoodToApi, loadFoodFromApi } from "../components/atoms/apiConnection";
+import { useLangosStore } from "../data/ItemStore";
 
 const StyledMumsMenu = styled.section`
 	display: flex;
@@ -27,15 +28,20 @@ const Logo = styled.img`
 `;
 
 const MumsMenu = () => {
+	// const { loadTheFoodPlease } = useMenuStore()
+	const { addDrinkItem, addFoodItem } = useLangosStore()
 	const [menuItems, setMenuItems] = useState([]);
 	const [drinkItems, setDrinkItems] = useState([]);
 	const [category, setCategory] = useState("");
+	const drinks = useLangosStore(state => state.drinkItems)
 
 	const addMenuItem = (newMenuItem) => {
 		if (category === "Food") {
 			setMenuItems((prevMenuItems) => [...prevMenuItems, newMenuItem]);
-		} else if (category === "Drinks") {
+			addFoodItem(newMenuItem)
+		} else  {
 			setDrinkItems((prevDrinkItems) => [...prevDrinkItems, newMenuItem]);
+			addDrinkItem(newMenuItem)
 		}
 	};
 	const saveTheFoodPlease = async () => {
@@ -46,13 +52,22 @@ const MumsMenu = () => {
 		await saveFoodToApi(foodAndDrinks);
 	};
 	const loadTheFoodPlease = async () => {
-		await loadFoodFromApi();
+		const menuData = await loadFoodFromApi();
+		if (menuData) {
+			setMenuItems(menuData.food)
+			setDrinkItems(menuData.drinks)
+		}
 	};
+	useEffect(() => {
+		if (menuItems.length > 0 || drinkItems.length > 0) {
+			saveTheFoodPlease()
+		}
+	}, [menuItems, drinkItems])
 	return (
 		<StyledMumsMenu>
 			<Logo src={logo} alt="logo" />
 			<MenuItemForm addMenuItem={addMenuItem} />
-			<button onClick={saveTheFoodPlease}> spara</button>
+			{/* <button onClick={saveTheFoodPlease}> spara</button>  */}
 			<button onClick={loadTheFoodPlease}> ladda </button>
 		</StyledMumsMenu>
 	);

@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import images from "./menu-img.json";
+import { saveFoodToApi, loadFoodFromApi } from "../components/atoms/apiConnection";
 
 // export default ItemStore;
 
@@ -18,3 +19,14 @@ export const useOverlayStore = create((set) => ({
 	toggleOverlay: () => set((state) => ({ overlayVisible: !state.overlayVisible })),
   }));
   
+
+export const useLangosStore = create(set => ({
+	drinkItems : [],
+	foodItems: [],
+	addDrinkItem: (drinkItem) => set(state => ({
+		drinkItems: [...state.drinkItems, drinkItem]
+	})),
+	addFoodItem: (foodItem) => set(state => ({
+		foodItems: [...state.foodItems, foodItem]
+	}))
+}))
