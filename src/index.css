@@ -72,6 +72,13 @@ h2 {
 	letter-spacing: 4px;
 }
 
+h3 {
+	margin: 0;
+	padding: 0.35rem;
+	letter-spacing: 2px;
+	line-height: 1.05;
+}
+
 .londrina-solid-thin {
 	font-family: "Londrina Solid", sans-serif;
 	font-weight: 100;

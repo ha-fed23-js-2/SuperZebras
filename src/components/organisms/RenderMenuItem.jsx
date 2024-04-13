@@ -16,10 +16,14 @@ const StyledMenuRender = styled.div`
 	box-sizing: border-box;
 `;
 
+const StyledButton = styled.button`
+	position: absolute;
+	transform: translateY(-4rem) translateX(21rem);
+`;
+export const myCart = [];
+
 const RenderMenuItem = ({ category }) => {
 	const [items, setItems] = useState([]);
-
-	const myCart = [];
 
 	useEffect(() => {
 		fetchData();
@@ -40,25 +44,18 @@ const RenderMenuItem = ({ category }) => {
 		}
 	};
 
-	const handleBuy = async (index) => {
-		console.log("trying to buy: ", items[index]);
-		try {
-			await loadFoodFromApi(index, category);
-			fetchData(); // Refetch items after deletion to update UI, but how? lol
-			myCart.push(items[index]);
-			console.log("added: ", index, "to cart");
-			console.log(myCart);
-		} catch (error) {
-			console.error("Failed to delete item:", error);
-		}
+	const handleBuy = (index) => {
+		myCart.push(items[index]);
+		console.log("Köpt:", items[index]);
 	};
+
 	return (
 		<StyledMenuRender>
 			{items.map((item, index) => (
 				<div key={index}>
 					<div>
 						<MenuItem image={item.image} title={item.name} ingredients={item.ingredients} price={item.price} />
-						<button onClick={() => handleBuy(index)}>Köp</button>
+						<StyledButton onClick={() => handleBuy(index)}>Köp</StyledButton>
 					</div>
 				</div>
 			))}

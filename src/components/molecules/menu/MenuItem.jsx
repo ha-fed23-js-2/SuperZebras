@@ -10,12 +10,20 @@ const StyledTitle = styled.h2`
 	font-size: var(--font-med-small);
 `;
 
+const StyledText = styled.p`
+	margin: 0;
+	padding: 0.35rem;
+	letter-spacing: 2px;
+	line-height: 1.05;
+	font-size: var(--font-med-smaller);
+`;
+
 const MenuItem = ({ title, desc }) => {
 	return (
 		<StyledIngredientDisplay>
 			<StyledTitle>{title}</StyledTitle>
-			<h3>{desc}</h3>
-			<h3>{price}</h3>
+			<StyledText>{desc}</StyledText>
+			<StyledText>{price}</StyledText>
 		</StyledIngredientDisplay>
 	);
 };

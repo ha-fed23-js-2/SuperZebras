@@ -2,9 +2,8 @@ import styled from "styled-components";
 import { useOverlayStore } from "../../data/ItemStore";
 import logo from "../../assets/img/test-logo-img.svg";
 import hamburgerLine from "../../assets/img/hamburger-line.svg";
-import { loadFoodFromApi } from "../atoms/apiConnection";
-// import Button from "../atoms/Button";
-
+import { myCart } from "./RenderMenuItem";
+import MenuItem from "../moledules/menu/MenuItem";
 const OverlayContainer = styled.div`
 	position: fixed;
 	margin: 0 auto;
@@ -88,12 +87,57 @@ const Divider = styled.div`
 	margin: 0 auto;
 `;
 
+const DeleteOrderItem = styled.button`
+	color: var(--compliment-color);
+	background-color: var(--secondary-color);
+	padding: 0.15rem 0.15rem;
+	width: 6rem;
+	border-radius: 10px;
+	margin: 0 auto;
+	padding: 0.35rem;
+
+	font-size: var(--font-med-small);
+	font-family: var(--font-family);
+	color: var(--compliment-color);
+	box-shadow: var(--shadow);
+	opacity: ${({ disabled }) => (disabled ? "0.5" : "1")};
+	cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
+	pointer-events: ${({ disabled }) => (disabled ? "none" : "auto")};
+`;
+const RenderCartItems = () => {
+	return (
+		<div>
+			{myCart.map((item, index) => (
+				<div key={index}>
+					<div>
+						<MenuItem image={item.image} title={item.name} ingredients={item.ingredients} price={item.price} />
+					</div>
+					<DeleteOrderItem>Remove</DeleteOrderItem>
+				</div>
+			))}
+		</div>
+	);
+};
+
 export default function YourOrderOverlay() {
 	const overlayVisible = useOverlayStore((state) => state.overlayVisible);
 	const toggleOverlay = useOverlayStore((state) => state.toggleOverlay);
 
 	const handleCloseOverlay = () => {
 		toggleOverlay();
+	};
+
+	let myPrice = myCart.map((item) => item.price);
+
+	const totalPrice = () => {
+		let total = 0;
+		if (myPrice.length > 0) {
+			return myPrice.reduce((accumulator, current) => {
+				const priceArray = current.split(" ");
+				return accumulator + parseFloat(priceArray[0]);
+			}, 0);
+		}
+		return total;
 	};
 
 	return (
@@ -113,11 +157,11 @@ export default function YourOrderOverlay() {
 				</OrderTitleContainer>
 				<YourOrderSection />
 				<OrderTitle></OrderTitle>
-				{/* TODO: Insert from API Here */}
+				<RenderCartItems />
 				<OrderSumContainer>
 					<Divider />
 					<OrderSum>
-						<p>Your sum</p>
+						<p>Your sum {totalPrice()}:- </p>
 						<button>Pay</button>
 					</OrderSum>
 				</OrderSumContainer>
