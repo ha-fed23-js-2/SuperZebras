@@ -4,16 +4,28 @@ const key = 'SuperZebras';
 async function saveFoodToApi(newItem) {
 	console.log('New item:', newItem);
 	const currentData = await loadFoodFromApi(); // we first load the current state
+
 	const updatedData = {
 		food: newItem.food ?
-			[...currentData.food, ...newItem.food.map(item =>
-				({ ...item, imageUrl: item.imageUrl || "" }))] :
+			[...currentData.food,
+			...newItem.food.filter(item =>
+
+				!currentData.food.find(existingItem =>
+					existingItem.name === item.name)).map(item =>
+						({ ...item, imageUrl: item.imageUrl || "" }))] :
+
 			[...currentData.food],
 		drinks: newItem.drinks ?
-			[...currentData.drinks, ...newItem.drinks.map(drink =>
-				({ ...drink, imageUrl: drink.imageUrl || "" }))] :
+			[...currentData.drinks,
+			...newItem.drinks.filter(drink =>
+
+				!currentData.drinks.find(existingDrink =>
+					existingDrink.name === drink.name)).map(drink =>
+						({ ...drink, imageUrl: drink.imageUrl || "" }))] :
+
 			[...currentData.drinks],
 	};
+
 	console.log('Saving data to API:', updatedData);
 	const url = `${baseUrl}?method=save`;
 	const response = await fetch(url, {
@@ -31,8 +43,6 @@ async function saveFoodToApi(newItem) {
 		throw new Error(`API save failed with status: ${response.status}`);
 	}
 }
-
-
 async function loadFoodFromApi() {
 	const url = baseUrl + '?method=load&key=' + key;
 	const response = await fetch(url, {
