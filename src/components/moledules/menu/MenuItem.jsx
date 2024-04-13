@@ -5,6 +5,7 @@ const StyledItem = styled.div`
 	width: 100%;
 	height: 100%;
 	padding-block: 3rem;
+	display: flex;
 `;
 
 const StyledTitle = styled.h2`
@@ -16,17 +17,28 @@ const StyledMenuImg = styled.img`
 	width: 25%;
 	padding-inline: 1rem;
 `;
+const StyledIngredients = styled.h3`
+	font-size: var(--font-med);
+`;
+const StyledPrice = styled.h3`
+	font-size: var(--font-med);
+	margin: 0;
+	width: content-size;
+	display: inline-block;
+`;
 
 const MenuItem = ({ image, title, ingredients, price }) => {
 	return (
 		<StyledItem>
-			<div style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-evenly" }}>
+			<div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "space-evenly" }}>
+				
 				<StyledMenuImg src={image} alt={`menu-item-${title}`} />
-				<StyledTitle>{title}</StyledTitle>
-				<h3>{price}</h3>
+				<StyledPrice>{price}</StyledPrice>
+			
 			</div>
-			<div style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-evenly" }}>
-				<h3>{ingredients}</h3>
+			<div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "space-evenly" }}>
+				<StyledTitle>{title}</StyledTitle>
+				<StyledIngredients>{ingredients}</StyledIngredients>
 			</div>
 		</StyledItem>
 	);
