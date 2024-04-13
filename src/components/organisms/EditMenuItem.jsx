@@ -1,7 +1,7 @@
 import MenuItem from "../moledules/menu/MenuItem";
 import styled from "styled-components";
 import { useState, useEffect } from "react";
-import { loadFoodFromApi } from "../atoms/apiConnection";
+import { loadFoodFromApi, deleteFoodFromApi } from "../atoms/apiConnection";
 
 const StyledMenuRender = styled.div`
 	display: flex;
@@ -38,12 +38,22 @@ const RenderMenuItem = ({ category }) => {
 		}
 	};
 
+	const handleDelete = async (index) => {
+		console.log("trying to delete: ", items[index]);
+		try {
+			await deleteFoodFromApi(index, category);
+			fetchData(); // Refetch items after deletion to update UI
+		} catch (error) {
+			console.error("Failed to delete item:", error);
+		}
+	};
 	return (
 		<StyledMenuRender>
 			{items.map((item, index) => (
 				<div key={index}>
 					<div>
 						<MenuItem image={item.image} title={item.name} ingredients={item.ingredients} price={item.price} />
+						<button onClick={() => handleDelete(index)}>Delete Item</button>
 					</div>
 				</div>
 			))}
