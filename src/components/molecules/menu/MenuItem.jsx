@@ -18,7 +18,7 @@ const StyledText = styled.p`
 	font-size: var(--font-med-smaller);
 `;
 
-const MenuItem = ({ title, desc }) => {
+const MenuItem = ({ title, desc, price }) => {
 	return (
 		<StyledIngredientDisplay>
 			<StyledTitle>{title}</StyledTitle>
@@ -30,6 +30,7 @@ const MenuItem = ({ title, desc }) => {
 MenuItem.propTypes = {
 	title: PropTypes.string.isRequired,
 	desc: PropTypes.string.isRequired,
+	price: PropTypes.string.isRequired,
 };
 
 export default MenuItem;
