@@ -55,7 +55,7 @@ export default function FoodSection() {
 			<ItemLine>
 				<span>Langos</span>
 			</ItemLine>
-			<RenderFoodItems>{setTimeout(<RenderMenuItem>test</RenderMenuItem>, 1000)};</RenderFoodItems>
+			<RenderFoodItems> <RenderMenuItem /> </RenderFoodItems>
 		</LangosSection>
 	);
 }
