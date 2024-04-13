@@ -6,13 +6,12 @@ const DropdownMenu = styled.div`
 	display: flex;
 	box-shadow: var(--shadow);
 	width: 20%;
-	// margin: 0 auto;
 	flex-direction: column;
 	gap: 0.5rem;
 	padding: 0.65rem;
 	border-radius: 10px;
 	margin-bottom: 2rem;
-	box-shadow: 0px 0px 10px ##202020;
+	box-shadow: 0px 0px 10px #202020; // Corrected the color code
 	border: 1px solid #3e3e3e;
 	background-color: var(--secondary-color);
 	color: var(--compliment-color);
@@ -23,17 +22,16 @@ const DropdownMenu = styled.div`
 		background-color: var(--secondary-color_alpha);
 	}
 `;
+
 const DropDownMenuCategory = styled.div`
 	display: flex;
-	box-shadow: var(--shadow);
 	width: 20%;
-	// margin: 0 auto;
 	flex-direction: column;
 	gap: 0.5rem;
 	padding: 0.65rem;
 	border-radius: 10px;
 	margin-bottom: 2rem;
-	box-shadow: 0px 0px 10px ##202020;
+	box-shadow: 0px 0px 10px #202020; // Corrected the color code
 	border: 1px solid #3e3e3e;
 	background-color: var(--secondary-color);
 	color: var(--compliment-color);
@@ -54,24 +52,31 @@ const Dropdowns = styled.div`
 	align-items: center;
 `;
 
-const Dropdown = () => {
-	//for dropdown
+const Dropdown = ({ onCategoryChange }) => {
+	const [selectedImageUrl, setSelectedImageUrl] = useState("");
+	const handleImageSelect = (imageUrl) => {
+		setSelectedImageUrl(imageUrl);
+		console.log(imageUrl);
+	};
+
 	const [open, setOpen] = useState(false);
 	const [openCat, setCatOpen] = useState(false);
 
-	const toggle = () => {
-		setOpen(!open);
-	};
-	const toggleCat = () => {
-		setCatOpen(!openCat);
-	};
+	const toggle = () => setOpen(!open);
+	const toggleCat = () => setCatOpen(!openCat);
 
 	const [category, setCategory] = useState("Food");
+
+	const handleCategoryChange = (newCategory) => {
+		setCategory(newCategory);
+		onCategoryChange(newCategory); // Use the passed prop for handling category changes
+	};
+
 	return (
 		<Dropdowns>
 			<DropdownMenu onClick={toggle} style={{ height: open ? "100%" : "118px" }}>
 				<div style={{ display: "flex", justifyContent: "space-between", overflow: "hidden" }}>
-					<DropdownItem></DropdownItem>
+					<DropdownItem onImageSelect={handleImageSelect}></DropdownItem>
 				</div>
 			</DropdownMenu>
 
@@ -80,18 +85,12 @@ const Dropdown = () => {
 					<>
 						<div
 							style={{ display: "flex", justifyContent: "space-between", overflow: "hidden", margin: "0 auto" }}
-							onClick={(e) => {
-								e.stopPropagation();
-								setCategory("Food");
-							}}>
+							onClick={() => handleCategoryChange("Food")}>
 							Food
 						</div>
 						<div
 							style={{ display: "flex", justifyContent: "space-between", overflow: "hidden", margin: "0 auto" }}
-							onClick={(e) => {
-								e.stopPropagation();
-								setCategory("Drinks");
-							}}>
+							onClick={() => handleCategoryChange("Drinks")}>
 							Drinks
 						</div>
 					</>

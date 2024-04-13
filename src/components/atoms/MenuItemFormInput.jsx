@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import Dropdown from "./DropDownMenuImg";
-import { saveFoodToApi } from "./apiConnection";
+import { loadFoodFromApi, saveFoodToApi } from "../atoms/apiConnection";
+import { useItemStore, useLangosStore } from "../../data/ItemStore";
 
 const StyledForm = styled.div`
 	// height: 15%;
@@ -42,9 +43,9 @@ const StyledButton = styled.button`
 	font-family: var(--font-family);
 	color: var(--compliment-color);
 	box-shadow: var(--shadow);
-	opacity: ${({ disabled }) => disabled ? '0.5' : '1'};
-    cursor: ${({ disabled }) => disabled ? 'not-allowed' : 'pointer'};
-    pointer-events: ${({ disabled }) => disabled ? 'none' : 'auto'};
+	opacity: ${({ disabled }) => (disabled ? "0.5" : "1")};
+	cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
+	pointer-events: ${({ disabled }) => (disabled ? "none" : "auto")};
 `;
 
 const Container = styled.div`
@@ -54,19 +55,28 @@ const Container = styled.div`
 	justify-content: center;
 `;
 
-const MenuItemForm = ({ addMenuItem }) => {
-	// const store = useMenuStore()
-	// console.log(store)
-	// const { addMenuItem, } = useMenuStore()
+const MenuItemForm = () => {
+	const { addFoodItem, addDrinkItem } = useLangosStore();
+	const [category, setCategory] = useState("Food");
+
 	const [name, setName] = useState("");
 	const [ingredients, setIngredients] = useState("");
 	const [price, setPrice] = useState("");
 	const [image, setImage] = useState("");
-	const [category, setCategory] = useState("");
 	const [formValid, setFormValid] = useState(false);
+
+	const { images } = useItemStore();
+
+	useEffect(() => {
+		if (images.length > 0) {
+			setImage(images[0].img);
+		}
+	}, [images]);
+
 	useEffect(() => {
 		setFormValid(name !== "" && ingredients !== "" && price !== "");
 	}, [name, ingredients, price]);
+
 	const submitHandler = async (e) => {
 		e.preventDefault();
 		const newMenuItem = {
@@ -74,13 +84,36 @@ const MenuItemForm = ({ addMenuItem }) => {
 			ingredients,
 			price,
 			image,
-			category,
 		};
-		addMenuItem(newMenuItem);
-		setName("");
-		setIngredients("");
-		setPrice("");
-		setImage("");
+
+		// Structure the data as expected by the API
+		const dataToSave = category === "Food" ? { food: [newMenuItem], drinks: [] } : { food: [], drinks: [newMenuItem] };
+
+		try {
+			await saveFoodToApi(dataToSave);
+
+			// Reset form fields after successful submission
+			setName("");
+			setIngredients("");
+			setPrice("");
+			setImage("");
+			setCategory("Food");
+
+			// Update the state in the store
+			if (category === "Food") {
+				addFoodItem(newMenuItem);
+			} else {
+				addDrinkItem(newMenuItem);
+			}
+		} catch (error) {
+			console.error("Failed to save menu item:", error);
+		}
+
+		try {
+			await loadFoodFromApi();
+		} catch (error) {
+			console.error("Failed to load menu items:", error);
+		}
 	};
 
 	return (
@@ -112,8 +145,17 @@ const MenuItemForm = ({ addMenuItem }) => {
 						<StyledP>Kategori:</StyledP>
 					</Container>
 					{/* todo: get img src from json */}
-					<Dropdown onChange={(e) => setImage(e.target.value)} />
-                    <StyledButton type="submit" disabled={!formValid}> Lägg till </StyledButton>
+					<Dropdown
+						onChange={(e) => {
+							console.log("Dropdown value:", e.target.value);
+							setImage(e.target.value);
+						}}
+						onCategoryChange={setCategory}
+					/>
+					<StyledButton type="submit" disabled={!formValid}>
+						{" "}
+						Lägg till{" "}
+					</StyledButton>
 				</label>
 			</form>
 		</StyledForm>

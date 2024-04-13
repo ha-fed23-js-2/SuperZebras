@@ -29,19 +29,17 @@ const Logo = styled.img`
 
 const MumsMenu = () => {
 	// const { loadTheFoodPlease } = useMenuStore()
-	const { addDrinkItem, addFoodItem } = useLangosStore()
+	const { addDrinkItem, addFoodItem } = useLangosStore();
 	const [menuItems, setMenuItems] = useState([]);
 	const [drinkItems, setDrinkItems] = useState([]);
-	const [category, setCategory] = useState("");
-	const drinks = useLangosStore(state => state.drinkItems)
 
-	const addMenuItem = (newMenuItem) => {
+	const addMenuItem = (newMenuItem, category) => {
 		if (category === "Food") {
 			setMenuItems((prevMenuItems) => [...prevMenuItems, newMenuItem]);
-			addFoodItem(newMenuItem)
-		} else  {
+			addFoodItem(newMenuItem);
+		} else {
 			setDrinkItems((prevDrinkItems) => [...prevDrinkItems, newMenuItem]);
-			addDrinkItem(newMenuItem)
+			addDrinkItem(newMenuItem);
 		}
 	};
 	const saveTheFoodPlease = async () => {
@@ -54,21 +52,23 @@ const MumsMenu = () => {
 	const loadTheFoodPlease = async () => {
 		const menuData = await loadFoodFromApi();
 		if (menuData) {
-			setMenuItems(menuData.food)
-			setDrinkItems(menuData.drinks)
+			setMenuItems(menuData.food);
+			setDrinkItems(menuData.drinks);
 		}
 	};
 	useEffect(() => {
 		if (menuItems.length > 0 || drinkItems.length > 0) {
-			saveTheFoodPlease()
+			saveTheFoodPlease();
 		}
-	}, [menuItems, drinkItems])
+	}, [menuItems, drinkItems]);
 	return (
 		<StyledMumsMenu>
 			<Logo src={logo} alt="logo" />
 			<MenuItemForm addMenuItem={addMenuItem} />
 			{/* <button onClick={saveTheFoodPlease}> spara</button>  */}
 			<button onClick={loadTheFoodPlease}> ladda </button>
+			<RenderMenuItem category="food" />
+			<RenderMenuItem category="drinks" />
 		</StyledMumsMenu>
 	);
 };

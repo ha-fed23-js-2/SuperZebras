@@ -15,6 +15,7 @@ const MenuItem = ({ title, desc }) => {
 		<StyledIngredientDisplay>
 			<StyledTitle>{title}</StyledTitle>
 			<h3>{desc}</h3>
+			<h3>{price}</h3>
 		</StyledIngredientDisplay>
 	);
 };
