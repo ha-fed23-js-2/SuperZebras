@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import MenuItemForm from "../components/atoms/MenuItemFormInput";
 import styled from "styled-components";
 import logo from "../assets/img/andra-longos-light-logo.svg";
-import RenderMenuItem from "../components/organisms/RenderMenuItem";
+import EditMenuItem from "../components/organisms/EditMenuItem";
 import { saveFoodToApi, loadFoodFromApi } from "../components/atoms/apiConnection";
 import { useLangosStore } from "../data/ItemStore";
 
@@ -65,10 +65,9 @@ const MumsMenu = () => {
 		<StyledMumsMenu>
 			<Logo src={logo} alt="logo" />
 			<MenuItemForm addMenuItem={addMenuItem} />
-			{/* <button onClick={saveTheFoodPlease}> spara</button>  */}
 			<button onClick={loadTheFoodPlease}> ladda </button>
-			<RenderMenuItem category="food" />
-			<RenderMenuItem category="drinks" />
+			<EditMenuItem category="food" />
+			<EditMenuItem category="drinks" />
 		</StyledMumsMenu>
 	);
 };

@@ -64,7 +64,6 @@ export default function FoodSection() {
 				<span>Langos</span>
 			</ItemLine>
 			<RenderFoodItems> {showMenuItem && <RenderMenuItem category="food">test</RenderMenuItem>}</RenderFoodItems>
-			<RenderFoodItems> {showMenuItem && <RenderMenuItem category="drinks">test</RenderMenuItem>}</RenderFoodItems>
 		</LangosSection>
 	);
 }
