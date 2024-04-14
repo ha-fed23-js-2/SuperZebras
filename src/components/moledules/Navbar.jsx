@@ -16,6 +16,7 @@ const StyledNavbar = styled.nav`
 	// with: 100%;
 	padding-top: 10px;
 	padding-bottom: 20px;
+	z-index: 5000;
 `;
 
 const StyledUl = styled.ul`
