@@ -2,6 +2,7 @@ import MenuItem from "../molecules/menu/MenuItem";
 import styled from "styled-components";
 import { useState, useEffect } from "react";
 import { loadFoodFromApi } from "../atoms/apiConnection";
+import { useCartStore } from "../../data/ItemStore";
 
 const StyledMenuRender = styled.div`
 	display: flex;
@@ -20,7 +21,8 @@ const StyledButton = styled.button`
 	position: absolute;
 	transform: translateY(-4rem) translateX(21rem);
 `;
-export const myCart = [];
+export let myCart = [];
+export let CartItems = "";
 
 const RenderMenuItem = ({ category }) => {
 	const [items, setItems] = useState([]);
@@ -44,9 +46,15 @@ const RenderMenuItem = ({ category }) => {
 		}
 	};
 
+	const { addToCart, cartStuff } = useCartStore();
+
 	const handleBuy = (index) => {
 		myCart.push(items[index]);
 		console.log("Köpt:", items[index]);
+		addToCart();
+		console.log("cartStuff :", cartStuff);
+		// cartstuff here
+		// console.log("my current items:", CartItems);
 	};
 
 	return (

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useOverlayStore } from "../../data/ItemStore";
+import { useOverlayStore, useCartStore } from "../../data/ItemStore";
 import logo from "../../assets/img/test-logo-img.svg";
 import hamburgerLine from "../../assets/img/hamburger-line.svg";
 import { myCart } from "./RenderMenuItem";
@@ -88,13 +88,13 @@ const Divider = styled.div`
 `;
 
 const DeleteOrderItem = styled.button`
-	color: var(--compliment-color);
 	background-color: var(--secondary-color);
 	padding: 0.15rem 0.15rem;
 	width: 6rem;
 	border-radius: 10px;
 	margin: 0 auto;
 	padding: 0.35rem;
+	transform: skew(1deg) rotate(1deg);
 
 	font-size: var(--font-med-small);
 	font-family: var(--font-family);
@@ -104,15 +104,27 @@ const DeleteOrderItem = styled.button`
 	cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
 	pointer-events: ${({ disabled }) => (disabled ? "none" : "auto")};
 `;
+
 const RenderCartItems = () => {
+	const { removeFromCart, totalSum } = useCartStore();
+	const handleDelete = (index) => {
+		console.log("price: ", myCart.at(index).price);
+
+		myCart.splice(index, 1);
+		// let total = () => {
+		// 	totalSum(totalSum - myCart.at(index).price);
+		// 	totalSum(total);
+		// };
+
+		removeFromCart();
+	};
+
 	return (
 		<div>
 			{myCart.map((item, index) => (
 				<div key={index}>
-					<div>
-						<MenuItem image={item.image} title={item.name} ingredients={item.ingredients} price={item.price} />
-					</div>
-					<DeleteOrderItem>Remove</DeleteOrderItem>
+					<MenuItem image={item.image} title={item.name} ingredients={item.ingredients} price={item.price} />
+					<DeleteOrderItem onClick={() => handleDelete(index)}>Delete Item</DeleteOrderItem>
 				</div>
 			))}
 		</div>
@@ -128,7 +140,6 @@ export default function YourOrderOverlay() {
 	};
 
 	let myPrice = myCart.map((item) => item.price);
-
 	const totalPrice = () => {
 		let total = 0;
 		if (myPrice.length > 0) {
@@ -139,7 +150,6 @@ export default function YourOrderOverlay() {
 		}
 		return total;
 	};
-
 	return (
 		<OverlayContainer $visible={overlayVisible}>
 			<ContentContainer>

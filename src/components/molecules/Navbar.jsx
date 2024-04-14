@@ -2,8 +2,8 @@ import styled from "styled-components";
 import Hamburger from "../atoms/Hamburger";
 import logo from "../../assets/img/andra-longos-light-logo.svg";
 import YourOrder from "../atoms/YourOrder";
-import { useOverlayStore } from "../../data/ItemStore";
-
+import { useOverlayStore, useCartStore } from "../../data/ItemStore";
+import CartItems from "../organisms/RenderMenuItem";
 const StyledNavbar = styled.nav`
 	margin: 20px;
 	box-sizing: border-box;
@@ -34,8 +34,9 @@ const Container = styled.div`
 `;
 
 export default function Navbar() {
+	let cartItems = useCartStore((state) => state.cart);
 	const toggleOverlay = useOverlayStore((state) => state.toggleOverlay);
-	console.log("Navbar - toggleOverlay:", toggleOverlay);
+	// console.log("Navbar - toggleOverlay:", toggleOverlay);
 
 	return (
 		<StyledNavbar>
@@ -43,7 +44,7 @@ export default function Navbar() {
 				<Logo src={logo} alt="Logo" />
 				<Container>
 					<button onClick={toggleOverlay}>
-						<YourOrder />
+						<YourOrder CartItems={cartItems} />
 					</button>{" "}
 					<Hamburger />
 				</Container>
