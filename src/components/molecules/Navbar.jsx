@@ -1,15 +1,16 @@
 import styled from "styled-components";
 import Hamburger from "../atoms/Hamburger";
-import logo from "../../assets/img/andra-longos-light-logo.svg";
+import logo from "../../assets/img/test-logo-img.svg";
 import YourOrder from "../atoms/YourOrder";
 import { useOverlayStore, useCartStore } from "../../data/ItemStore";
 import CartItems from "../organisms/RenderMenuItem";
 const StyledNavbar = styled.nav`
-	margin: 20px;
+	padding: 20px 0;
 	box-sizing: border-box;
 	position: sticky;
 	top: 0;
-	// background-color: var(--main-color);
+	background-color: var(--main-color);
+	z-index: 2999;
 	// with: 100%;
 `;
 
@@ -21,9 +22,10 @@ const StyledUl = styled.ul`
 `;
 
 const Logo = styled.img`
-	width: 100px;
+	width: 120px;
 	height: auto;
-	z-index: 3000;
+	z-index: 3001;
+	padding-left: 20px;
 `;
 
 const Container = styled.div`
