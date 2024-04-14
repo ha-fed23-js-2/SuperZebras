@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import PriceDisplay from "./PriceDisplay";
 
 const StyledIngredientDisplay = styled.div`
 	width: 100%;
@@ -23,7 +24,7 @@ const MenuItem = ({ title, desc, price }) => {
 		<StyledIngredientDisplay>
 			<StyledTitle>{title}</StyledTitle>
 			<StyledText>{desc}</StyledText>
-			<StyledText>{price}</StyledText>
+			<PriceDisplay>{price}</PriceDisplay>
 		</StyledIngredientDisplay>
 	);
 };

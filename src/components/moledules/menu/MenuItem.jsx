@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import PropTypes from "prop-types";
-
+import PriceDisplay from "../../molecules/menu/PriceDisplay";
 const StyledItem = styled.div`
 	width: 100%;
 	height: 100%;
@@ -20,21 +19,14 @@ const StyledMenuImg = styled.img`
 const StyledIngredients = styled.h3`
 	font-size: var(--font-med);
 `;
-const StyledPrice = styled.h3`
-	font-size: var(--font-med);
-	margin: 0;
-	width: content-size;
-	display: inline-block;
-`;
 
 const MenuItem = ({ image, title, ingredients, price }) => {
 	return (
 		<StyledItem>
-			<div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "space-evenly" }}>
-				
+			<div
+				style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "space-evenly" }}>
 				<StyledMenuImg src={image} alt={`menu-item-${title}`} />
-				<StyledPrice>{price}</StyledPrice>
-			
+				<PriceDisplay price={price}></PriceDisplay>
 			</div>
 			<div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "space-evenly" }}>
 				<StyledTitle>{title}</StyledTitle>
