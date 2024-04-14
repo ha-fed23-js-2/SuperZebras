@@ -3,7 +3,7 @@ import { useOverlayStore } from "../../data/ItemStore";
 import logo from "../../assets/img/test-logo-img.svg";
 import hamburgerLine from "../../assets/img/hamburger-line.svg";
 import { myCart } from "./RenderMenuItem";
-import MenuItem from "../moledules/menu/MenuItem";
+import MenuItem from "../molecules/menu/MenuItem";
 const OverlayContainer = styled.div`
 	position: fixed;
 	margin: 0 auto;

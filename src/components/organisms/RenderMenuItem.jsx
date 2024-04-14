@@ -1,4 +1,4 @@
-import MenuItem from "../moledules/menu/MenuItem";
+import MenuItem from "../molecules/menu/MenuItem";
 import styled from "styled-components";
 import { useState, useEffect } from "react";
 import { loadFoodFromApi } from "../atoms/apiConnection";

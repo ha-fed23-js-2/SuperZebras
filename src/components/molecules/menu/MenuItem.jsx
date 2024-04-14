@@ -1,37 +1,39 @@
 import styled from "styled-components";
-import PropTypes from "prop-types";
-import PriceDisplay from "./PriceDisplay";
-
-const StyledIngredientDisplay = styled.div`
+import PriceDisplay from "../../molecules/menu/PriceDisplay";
+const StyledItem = styled.div`
 	width: 100%;
 	height: 100%;
+	padding-block: 3rem;
+	display: flex;
 `;
 
 const StyledTitle = styled.h2`
-	font-size: var(--font-med-small);
+	font-size: var(--font-med-bigger);
+	padding-block: 0.35rem;
 `;
 
-const StyledText = styled.p`
-	margin: 0;
-	padding: 0.35rem;
-	letter-spacing: 2px;
-	line-height: 1.05;
-	font-size: var(--font-med-smaller);
+const StyledMenuImg = styled.img`
+	width: 25%;
+	padding-inline: 1rem;
+`;
+const StyledIngredients = styled.h3`
+	font-size: var(--font-med);
 `;
 
-const MenuItem = ({ title, desc, price }) => {
+const MenuItem = ({ image, title, ingredients, price }) => {
 	return (
-		<StyledIngredientDisplay>
-			<StyledTitle>{title}</StyledTitle>
-			<StyledText>{desc}</StyledText>
-			<PriceDisplay>{price}</PriceDisplay>
-		</StyledIngredientDisplay>
+		<StyledItem>
+			<div
+				style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "space-evenly" }}>
+				<StyledMenuImg src={image} alt={`menu-item-${title}`} />
+				<PriceDisplay price={price}></PriceDisplay>
+			</div>
+			<div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "space-evenly" }}>
+				<StyledTitle>{title}</StyledTitle>
+				<StyledIngredients>{ingredients}</StyledIngredients>
+			</div>
+		</StyledItem>
 	);
-};
-MenuItem.propTypes = {
-	title: PropTypes.string.isRequired,
-	desc: PropTypes.string.isRequired,
-	price: PropTypes.string.isRequired,
 };
 
 export default MenuItem;
