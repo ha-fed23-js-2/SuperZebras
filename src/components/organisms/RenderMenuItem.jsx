@@ -19,7 +19,7 @@ const StyledMenuRender = styled.div`
 
 const StyledButton = styled.button`
 	position: absolute;
-	transform: translateY(-4rem) translateX(21rem);
+	// transform: translateY(-4rem) translateX(21rem);
 `;
 export let myCart = [];
 export let CartItems = "";
@@ -62,7 +62,7 @@ const RenderMenuItem = ({ category }) => {
 		<StyledMenuRender>
 			{items.map((item, index) => (
 				<div key={index}>
-					<div>
+					<div style={{position: "relative"}} >
 						<MenuItem
 							image={selectedImageUrl || item.image} // Use selectedImageUrl if available
 							title={item.name}

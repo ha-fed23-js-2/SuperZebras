@@ -8,6 +8,32 @@ const StyledItem = styled.div`
     flex-direction: column;
 `;
 
+const StyledItemContent = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+    }
+`;
+
+const StyledTextContent = styled.div`
+    flex-grow: 1;
+    text-align: left;
+    color: var(--compliment-color);
+    @media (max-width: 768px) {
+        text-align: center;
+    }
+`;
+
+const PriceDisplayContainer = styled.div`
+@media (max-width: 768px) {
+	align-self: center;
+}
+	`
+
 const StyledTitle = styled.h2`
     font-size: var(--font-med-bigger);
     padding-block: 0.35rem;
@@ -24,33 +50,16 @@ const StyledIngredients = styled.h3`
 const MenuItem = ({ image, title, ingredients, price }) => {
     return (
         <StyledItem>
-            <div
-                style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                    width: "100%",
-					
-                    
-                }}
-            >
-                <div>
-                    <StyledMenuImg src={image} alt={`menu-item-${title}`} />
-                </div>
-                <div
-                    style={{
-                        flexGrow: "1",
-                        textAlign: "left",
-                        color: "var(--compliment-color)",
-                    }}
-                >
+            <StyledItemContent>
+                <StyledMenuImg src={image} alt={`menu-item-${title}`} />
+                <StyledTextContent>
                     <StyledTitle>{title}</StyledTitle>
                     <StyledIngredients>{ingredients}</StyledIngredients>
-                </div>
-            </div>
-            <div>
+                </StyledTextContent>
+            </StyledItemContent>
+            <PriceDisplayContainer>
                 <PriceDisplay price={price}></PriceDisplay>
-            </div>
+            </PriceDisplayContainer>
         </StyledItem>
     );
 };
