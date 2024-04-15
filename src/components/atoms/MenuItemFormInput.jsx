@@ -153,8 +153,7 @@ const MenuItemForm = () => {
 						onCategoryChange={setCategory}
 					/>
 					<StyledButton type="submit" disabled={!formValid}>
-						{" "}
-						Lägg till{" "}
+						Lägg till
 					</StyledButton>
 				</label>
 			</form>
