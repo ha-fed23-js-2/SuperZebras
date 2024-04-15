@@ -51,7 +51,7 @@ export default function FoodSection() {
 	useEffect(() => {
 		setTimeout(() => {
 			setShowMenuItem(true);
-		}, 1000);
+		}, 30);
 	}, []);
 
 	return (

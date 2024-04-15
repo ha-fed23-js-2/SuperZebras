@@ -50,7 +50,7 @@ export default function DrinkSection() {
 	useEffect(() => {
 		setTimeout(() => {
 			setShowMenuItem(true);
-		}, 1000);
+		}, 30);
 	}, []);
 	return (
 		<BeerSection>
