@@ -32,8 +32,8 @@ const Landing = () => {
 			<YourOrderOverlay />
 			<Navbar />
 			<StyledLanding>
-				<FoodSection />
-				<DrinkSectionBg>
+				<FoodSection/>
+				<DrinkSectionBg id="drinks">
 					<DrinkSection />
 				</DrinkSectionBg>
 			</StyledLanding>

@@ -1,25 +1,22 @@
 {
 	"items": [
 		{
-			"img": "src/assets/img/menu-imgs/item__food1.svg"
+			"img": "src/assets/img/menu-imgs/item_food1.svg"
 		},
 		{
-			"img": "src/assets/img/menu-imgs/item__food2.svg"
+			"img": "src/assets/img/menu-imgs/item_food2.svg"
 		},
 		{
-			"img": "src/assets/img/menu-imgs/item__food3.svg"
+			"img": "src/assets/img/menu-imgs/item_food3.svg"
 		},
 		{
-			"img": "src/assets/img/menu-imgs/item__food4.svg"
+			"img": "src/assets/img/menu-imgs/item_drink1.svg"
 		},
 		{
-			"img": "src/assets/img/menu-imgs/item__drink1.svg"
+			"img": "src/assets/img/menu-imgs/item_drink2.svg"
 		},
 		{
-			"img": "src/assets/img/menu-imgs/item__drink2.svg"
-		},
-		{
-			"img": "src/assets/img/menu-imgs/item__drink3.svg"
+			"img": "src/assets/img/menu-imgs/item_drink3.svg"
 		}
 	
 	]
