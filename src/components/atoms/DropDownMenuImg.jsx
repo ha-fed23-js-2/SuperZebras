@@ -28,7 +28,7 @@ const DropDownMenuCategory = styled.div`
 	display: flex;
 	width: 20%;
 	flex-direction: column;
-	gap: 0.5rem;
+	gap: 0.85rem;
 	padding: 0.65rem;
 	border-radius: 10px;
 	margin-bottom: 2rem;
@@ -38,6 +38,7 @@ const DropDownMenuCategory = styled.div`
 	color: var(--compliment-color);
 	cursor: pointer;
 	height: 5%;
+	justify-content: center; // Added this line to center the content vertically
 
 	&:hover {
 		background-color: var(--secondary-color_alpha);
@@ -82,22 +83,44 @@ const Dropdown = ({ onCategoryChange }) => {
 				</div>
 			</DropdownMenu>
 
-			<DropDownMenuCategory onClick={toggleCat} style={{ height: openCat ? "max-content" : "3rem" }}>
+			<DropDownMenuCategory onClick={toggleCat} style={{ height: openCat ? "max-content" : "118px" }}>
 				{openCat ? (
 					<>
 						<div
-							style={{ display: "flex", justifyContent: "space-between", overflow: "hidden", margin: "0 auto" }}
+							style={{
+								display: "flex",
+								justifyContent: "center",
+								alignItems: "center",
+								overflow: "hidden",
+								margin: "0 auto",
+								padding: "20px",
+							}}
 							onClick={(e) => handleCategoryChange("Food", e)}>
-							Food
+							<span>Food</span>
 						</div>
 						<div
-							style={{ display: "flex", justifyContent: "space-between", overflow: "hidden", margin: "0 auto" }}
+							style={{
+								display: "flex",
+								justifyContent: "center",
+								alignItems: "center",
+								overflow: "hidden",
+								margin: "0 auto",
+								padding: "20px",
+							}}
 							onClick={(e) => handleCategoryChange("Drinks", e)}>
-							Drinks
+							<span>Drinks</span>
 						</div>
 					</>
 				) : (
-					<div style={{ display: "flex", justifyContent: "space-between", overflow: "hidden", margin: "0 auto" }}>
+					<div
+						style={{
+							display: "flex",
+							justifyContent: "center",
+							alignItems: "center",
+							overflow: "hidden",
+							margin: "0 auto",
+							padding: "20px",
+						}}>
 						{category}
 					</div>
 				)}

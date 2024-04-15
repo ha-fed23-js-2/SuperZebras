@@ -108,7 +108,7 @@ const MenuItemForm = () => {
 			setCategory("Food");
 
 			await loadFoodFromApi();
-			// window.location.reload();
+			window.location.reload();
 		} catch (error) {
 			console.error("Failed to save menu item:", error);
 		}
