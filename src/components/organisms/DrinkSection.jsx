@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import drinkImage from "../../assets/img/drinks-section-img.svg";
+import drinkImage from "/assets/img/drinks-section-img.svg";
 import RenderMenuItem from "./RenderMenuItem";
 import { useEffect, useState } from "react";
 

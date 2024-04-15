@@ -5,22 +5,22 @@ import { loadFoodFromApi } from "../atoms/apiConnection";
 import { useCartStore, useItemStore } from "../../data/ItemStore";
 
 const StyledButton = styled.button`
-    color: var(--secondary-color);
-    margin: 0;
-    // width: 120px;
-    display: block;
-    background-color: var(--notification-color);
-    font-size: var(--font-med-smaller);
-    transform: rotate(3deg);
-    // box-shadow: var(--shadow);
-    position: absolute;
-    right: 0;
-    top: 170px;
+	color: var(--secondary-color);
+	margin: 0;
+	// width: 120px;
+	display: block;
+	background-color: var(--notification-color);
+	font-size: var(--font-med-smaller);
+	transform: rotate(3deg);
+	// box-shadow: var(--shadow);
+	position: absolute;
+	right: 0;
+	top: 170px;
 	padding: 0.4rem 0.8rem;
-    @media (max-width: 480px) {
-        margin: 10px auto; 
-        position: static; 
-    }
+	@media (max-width: 480px) {
+		margin: 10px auto;
+		position: static;
+	}
 `;
 
 const StyledMenuRender = styled.div`
@@ -35,7 +35,6 @@ const StyledMenuRender = styled.div`
 	padding: 20px;
 	box-sizing: border-box;
 `;
-
 
 export let myCart = [];
 export let CartItems = "";
@@ -78,9 +77,9 @@ const RenderMenuItem = ({ category }) => {
 		<StyledMenuRender>
 			{items.map((item, index) => (
 				<div key={index}>
-					<div style={{position: "relative"}} >
+					<div style={{ position: "relative" }}>
 						<MenuItem
-							image={selectedImageUrl || item.image} // Use selectedImageUrl if available
+							image={selectedImageUrl ? selectedImageUrl : item.image}
 							title={item.name}
 							ingredients={item.ingredients}
 							price={item.price}

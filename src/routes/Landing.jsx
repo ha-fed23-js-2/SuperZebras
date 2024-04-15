@@ -3,7 +3,7 @@ import Navbar from "../components/molecules/Navbar";
 import FoodSection from "../components/organisms/FoodSection";
 import DrinkSection from "../components/organisms/DrinkSection";
 import FooterSection from "../components/organisms/FooterSection";
-import sectionBg from "../assets/img/wavy-drink-bg.svg";
+import sectionBg from "/assets/img/wavy-drink-bg.svg";
 import YourOrderOverlay from "../components/organisms/YourOrderOverlay";
 
 const StyledLanding = styled.div`
@@ -32,7 +32,7 @@ const Landing = () => {
 			<YourOrderOverlay />
 			<Navbar />
 			<StyledLanding>
-				<FoodSection/>
+				<FoodSection />
 				<DrinkSectionBg id="drinks">
 					<DrinkSection />
 				</DrinkSectionBg>

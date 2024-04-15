@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import LangosImage from "../../assets/img/langos-section-img.svg";
+import LangosImage from "/assets/img/langos-section-img.svg";
 import RenderMenuItem from "./RenderMenuItem";
 import { useEffect, useState } from "react";
 const LangosSection = styled.section`
