@@ -111,6 +111,7 @@ const MenuItemForm = () => {
 
 		try {
 			await loadFoodFromApi();
+			window.location.reload();
 		} catch (error) {
 			console.error("Failed to load menu items:", error);
 		}
