@@ -70,6 +70,14 @@ h1 {
 
 h2 {
 	letter-spacing: 4px;
+	line-height: 1.05;
+}
+
+h3 {
+	margin: 0 !important;
+	padding: 0.35rem;
+	letter-spacing: 2px;
+	line-height: 1.05;
 }
 
 .londrina-solid-thin {
