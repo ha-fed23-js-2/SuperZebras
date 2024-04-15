@@ -4,23 +4,39 @@ import { useState, useEffect } from "react";
 import { loadFoodFromApi } from "../atoms/apiConnection";
 import { useCartStore, useItemStore } from "../../data/ItemStore";
 
+const StyledButton = styled.button`
+    color: var(--secondary-color);
+    margin: 0;
+    // width: 120px;
+    display: block;
+    background-color: var(--notification-color);
+    font-size: var(--font-med-smaller);
+    transform: rotate(3deg);
+    // box-shadow: var(--shadow);
+    position: absolute;
+    right: 0;
+    top: 170px;
+	padding: 0.4rem 0.8rem;
+    @media (max-width: 480px) {
+        margin: 10px auto; 
+        position: static; 
+    }
+`;
+
 const StyledMenuRender = styled.div`
 	display: flex;
 	flex-direction: column;
 	width: 100%;
 	height: 100%;
 	font-size: var(--font-med);
-	align-items: center;
+	// align-items: center;
 	justify-content: flex-start;
-	text-align: center;
+	// text-align: center;
 	padding: 20px;
 	box-sizing: border-box;
 `;
 
-const StyledButton = styled.button`
-	position: absolute;
-	transform: translateY(-4rem) translateX(21rem);
-`;
+
 export let myCart = [];
 export let CartItems = "";
 
@@ -62,7 +78,7 @@ const RenderMenuItem = ({ category }) => {
 		<StyledMenuRender>
 			{items.map((item, index) => (
 				<div key={index}>
-					<div>
+					<div style={{position: "relative"}} >
 						<MenuItem
 							image={selectedImageUrl || item.image} // Use selectedImageUrl if available
 							title={item.name}

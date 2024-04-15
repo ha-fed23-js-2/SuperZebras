@@ -12,11 +12,11 @@ const OverlayContainer = styled.div`
 	max-width: 800px;
 	height: 100vh;
 	background-color: var(--compliment-color);
-	z-index: 2000;
+	z-index: 3000;
 	opacity: ${(props) => (props.$visible ? 1 : 0)};
 	pointer-events: ${(props) => (props.$visible ? "auto" : "none")};
 	transition: opacity 0.2s ease-in-out;
-	padding-top: 10px;
+	padding-top: 20px;
 `;
 
 const ContentContainer = styled.div`
@@ -35,8 +35,9 @@ const NavContainer = styled.div`
 `;
 
 const Logo = styled.img`
-	width: 100px;
+	width: 120px;
 	height: auto;
+	padding-right: 20px;
 `;
 
 const StyledBurger = styled.div`

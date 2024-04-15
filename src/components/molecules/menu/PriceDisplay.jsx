@@ -10,12 +10,12 @@ const StyledItemDisplay = styled.div`
 
 const PriceBackground = styled.div`
 	background-color: var(--compliment-color);
-	padding: 0.35rem;
+	padding: 0 0.35rem;
 	width: fit-content;
 	transform: skew(3deg, 1deg) rotate(356deg);
 `;
 const StyledPrice = styled.h3`
-	font-size: var(--font-med);
+	font-size: var(--font-med-smaller);
 	color: var(--main-color);
 	margin: 0;
 	width: content-size;
