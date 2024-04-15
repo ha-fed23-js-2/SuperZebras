@@ -1,8 +1,7 @@
 import MenuItem from "../molecules/menu/MenuItem";
 import styled from "styled-components";
 import { useState, useEffect } from "react";
-import { loadFoodFromApi } from "../atoms/apiConnection";
-import { useCartStore } from "../../data/ItemStore";
+import { loadFoodFromApi, deleteFoodFromApi } from "../atoms/apiConnection";
 
 const StyledMenuRender = styled.div`
 	display: flex;
@@ -16,13 +15,6 @@ const StyledMenuRender = styled.div`
 	padding: 20px;
 	box-sizing: border-box;
 `;
-
-const StyledButton = styled.button`
-	position: absolute;
-	transform: translateY(-4rem) translateX(21rem);
-`;
-export let myCart = [];
-export let CartItems = "";
 
 const RenderMenuItem = ({ category }) => {
 	const [items, setItems] = useState([]);
@@ -46,24 +38,22 @@ const RenderMenuItem = ({ category }) => {
 		}
 	};
 
-	const { addToCart, cartStuff } = useCartStore();
-
-	const handleBuy = (index) => {
-		myCart.push(items[index]);
-		console.log("Köpt:", items[index]);
-		addToCart();
-		console.log("cartStuff :", cartStuff);
-		// cartstuff here
-		// console.log("my current items:", CartItems);
+	const handleDelete = async (index) => {
+		console.log("trying to delete: ", items[index]);
+		try {
+			await deleteFoodFromApi(index, category);
+			fetchData(); // Refetch items after deletion to update UI
+		} catch (error) {
+			console.error("Failed to delete item:", error);
+		}
 	};
-
 	return (
 		<StyledMenuRender>
 			{items.map((item, index) => (
 				<div key={index}>
 					<div>
 						<MenuItem image={item.image} title={item.name} ingredients={item.ingredients} price={item.price} />
-						<StyledButton onClick={() => handleBuy(index)}>Köp</StyledButton>
+						<button onClick={() => handleDelete(index)}>Delete Item</button>
 					</div>
 				</div>
 			))}
