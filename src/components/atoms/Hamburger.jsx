@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import hamburgerLine from "../../assets/img/hamburger-line.svg";
+import { useState } from "react";
 
 const StyledBurger = styled.div`
 	display: flex;
