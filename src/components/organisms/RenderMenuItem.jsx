@@ -10,9 +10,9 @@ const StyledMenuRender = styled.div`
 	width: 100%;
 	height: 100%;
 	font-size: var(--font-med);
-	align-items: center;
+	// align-items: center;
 	justify-content: flex-start;
-	text-align: center;
+	// text-align: center;
 	padding: 20px;
 	box-sizing: border-box;
 `;
