@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import DropdownItem from "./DropdownItem";
+import { useItemStore } from "../../data/ItemStore";
 
 const DropdownMenu = styled.div`
 	display: flex;
@@ -53,7 +54,7 @@ const Dropdowns = styled.div`
 `;
 
 const Dropdown = ({ onCategoryChange }) => {
-	const [selectedImageUrl, setSelectedImageUrl] = useState("");
+	const setSelectedImageUrl = useItemStore((state) => state.setSelectedImageUrl);
 	const handleImageSelect = (imageUrl) => {
 		setSelectedImageUrl(imageUrl);
 		console.log(imageUrl);
@@ -103,5 +104,5 @@ const Dropdown = ({ onCategoryChange }) => {
 		</Dropdowns>
 	);
 };
-
+//
 export default Dropdown;

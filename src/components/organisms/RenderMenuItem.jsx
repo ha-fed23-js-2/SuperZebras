@@ -2,7 +2,7 @@ import MenuItem from "../molecules/menu/MenuItem";
 import styled from "styled-components";
 import { useState, useEffect } from "react";
 import { loadFoodFromApi } from "../atoms/apiConnection";
-import { useCartStore } from "../../data/ItemStore";
+import { useCartStore, useItemStore } from "../../data/ItemStore";
 
 const StyledMenuRender = styled.div`
 	display: flex;
@@ -25,6 +25,7 @@ export let myCart = [];
 export let CartItems = "";
 
 const RenderMenuItem = ({ category }) => {
+	const { selectedImageUrl } = useItemStore((state) => state.selectedImageUrl);
 	const [items, setItems] = useState([]);
 
 	useEffect(() => {
@@ -62,7 +63,12 @@ const RenderMenuItem = ({ category }) => {
 			{items.map((item, index) => (
 				<div key={index}>
 					<div>
-						<MenuItem image={item.image} title={item.name} ingredients={item.ingredients} price={item.price} />
+						<MenuItem
+							image={selectedImageUrl || item.image} // Use selectedImageUrl if available
+							title={item.name}
+							ingredients={item.ingredients}
+							price={item.price}
+						/>
 						<StyledButton onClick={() => handleBuy(index)}>Köp</StyledButton>
 					</div>
 				</div>
