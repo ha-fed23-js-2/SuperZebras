@@ -57,8 +57,12 @@ button {
 	--font-med-small: 28px;
 	--font-med-smaller: 22px;
 	--font-normal: 16px;
+	--font-normal-small: 12px;
 	--font-small: 8px;
 	--font-super-small: 4px;
+	--letter-spacing-small: 1px;
+	--letter-spacing-med: 2px;
+	--letter-spacing-big: 4px;
 	--shadow: 0px 0px 30px rgba(0, 0, 0, 0.438);
 }
 

@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import facts from "../../data/facts";
 
@@ -35,6 +34,7 @@ const RandomFact = styled.h3`
 	span {
 		font-size: 2em;
 	}
+	letter-spacing: var(--letter-spacing-big);
 `;
 
 const FooterInformationContainer = styled.div`
@@ -42,6 +42,9 @@ const FooterInformationContainer = styled.div`
 	flex-direction: row;
 	justify-content: space-between;
 	color: var(--secondary-color);
+	padding: 1rem;
+	font-size: var(--font-med-smaller);
+	letter-spacing: var(--letter-spacing-med);
 `;
 
 const LeftContainer = styled.div``;

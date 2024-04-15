@@ -15,8 +15,9 @@ const PriceBackground = styled.div`
 	transform: skew(3deg, 1deg) rotate(356deg);
 `;
 const StyledPrice = styled.h3`
-	font-size: var(--font-med-smaller);
+	font-size: var(--font-med-small);
 	color: var(--main-color);
+	letter-spacing: var(--letter-spacing-med);
 	margin: 0;
 	width: content-size;
 	display: inline-block;
