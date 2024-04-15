@@ -20,7 +20,7 @@ const StyledMenuRender = styled.div`
 const RenderMenuItem = ({ category }) => {
 	const [items, setItems] = useState([]);
 	// todo: use this god damn thing properly somehow
-	const selectedImageUrl = useItemStore((state) => state.selectecImageUrl);
+	const selectedImageUrl = useItemStore((state) => state.selectedImageUrl);
 
 	useEffect(() => {
 		fetchData();
@@ -52,19 +52,21 @@ const RenderMenuItem = ({ category }) => {
 	};
 	return (
 		<StyledMenuRender>
-			{items.map((item, index) => (
-				<div key={index}>
-					<div>
-						<MenuItem
-							image={selectedImageUrl ? selectedImageUrl : item.image}
-							title={item.name}
-							ingredients={item.ingredients}
-							price={item.price}
-						/>
-						<button onClick={() => handleDelete(index)}>Delete Item</button>
-					</div>
-				</div>
-			))}
+			{items
+  .filter(item => item !== null) // Filter out null items
+  .map((item, index) => (
+    <div key={index}>
+      <div>
+        <MenuItem
+          image={selectedImageUrl ? selectedImageUrl : item.image}
+          title={item.name}
+          ingredients={item.ingredients}
+          price={item.price}
+        />
+        <button onClick={() => handleDelete(index)}>Delete Item</button>
+      </div>
+    </div>
+  ))}
 		</StyledMenuRender>
 	);
 };

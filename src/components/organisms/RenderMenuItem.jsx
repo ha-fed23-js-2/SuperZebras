@@ -76,18 +76,21 @@ const RenderMenuItem = ({ category }) => {
 	return (
 		<StyledMenuRender>
 			{items.map((item, index) => (
-				<div key={index}>
-					<div style={{ position: "relative" }}>
-						<MenuItem
-							image={selectedImageUrl ? selectedImageUrl : item.image}
-							title={item.name}
-							ingredients={item.ingredients}
-							price={item.price}
-						/>
-						<StyledButton onClick={() => handleBuy(index)}>Köp</StyledButton>
-					</div>
-				</div>
-			))}
+  // Check if the item is not null before rendering
+  item !== null && (
+    <div key={index}>
+      <div style={{ position: "relative" }}>
+        <MenuItem
+          image={selectedImageUrl ? selectedImageUrl : (item.image || "")} // Handle null image value
+          title={item.name}
+          ingredients={item.ingredients}
+          price={item.price}
+        />
+        <StyledButton onClick={() => handleBuy(index)}>Köp</StyledButton>
+      </div>
+    </div>
+  )
+))}
 		</StyledMenuRender>
 	);
 };
