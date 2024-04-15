@@ -55,7 +55,12 @@ const RenderMenuItem = ({ category }) => {
 			{items.map((item, index) => (
 				<div key={index}>
 					<div>
-						<MenuItem image={item.image} title={item.name} ingredients={item.ingredients} price={item.price} />
+						<MenuItem
+							image={selectedImageUrl ? selectedImageUrl : item.image}
+							title={item.name}
+							ingredients={item.ingredients}
+							price={item.price}
+						/>
 						<button onClick={() => handleDelete(index)}>Delete Item</button>
 					</div>
 				</div>

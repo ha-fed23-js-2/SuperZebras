@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useOverlayStore, useCartStore } from "../../data/ItemStore";
-import logo from "../../assets/img/test-logo-img.svg";
-import hamburgerLine from "../../assets/img/hamburger-line.svg";
+import logo from "/assets/img/test-logo-img.svg";
+import hamburgerLine from "/assets/img/hamburger-line.svg";
 import { myCart } from "./RenderMenuItem";
 import MenuItem from "../molecules/menu/MenuItem";
 const OverlayContainer = styled.div`

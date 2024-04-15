@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import MenuItemForm from "../components/atoms/MenuItemFormInput";
 import styled from "styled-components";
-import logo from "../assets/img/andra-longos-light-logo.svg";
+import logo from "/assets/img/andra-longos-light-logo.svg";
 import EditMenuItem from "../components/organisms/EditMenuItem";
 import { saveFoodToApi } from "../components/atoms/apiConnection";
 import { useLangosStore } from "../data/ItemStore";

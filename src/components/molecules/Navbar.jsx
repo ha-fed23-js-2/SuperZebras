@@ -1,9 +1,8 @@
 import styled from "styled-components";
 import Hamburger from "../atoms/Hamburger";
-import logo from "../../assets/img/test-logo-img.svg";
+import logo from "/assets/img/test-logo-img.svg";
 import YourOrder from "../atoms/YourOrder";
 import { useOverlayStore, useCartStore } from "../../data/ItemStore";
-import CartItems from "../organisms/RenderMenuItem";
 const StyledNavbar = styled.nav`
 	padding: 20px 0;
 	box-sizing: border-box;
@@ -11,7 +10,11 @@ const StyledNavbar = styled.nav`
 	top: 0;
 	background-color: var(--main-color);
 	z-index: 2999;
+	border-radius: 0 0 10px 10px;
 	// with: 100%;
+	@media (max-width: 480px) {
+		border-radius: 0;
+	}
 `;
 
 const StyledUl = styled.ul`

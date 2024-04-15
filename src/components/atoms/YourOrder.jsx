@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import yourOrderLogo from "../../assets/img/your-order-img.svg";
+import yourOrderLogo from "/assets/img/your-order-img.svg";
 import { useCartStore } from "../../data/ItemStore";
 
 const YourOrderContainer = styled.div`

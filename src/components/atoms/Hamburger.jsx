@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import hamburgerLine from "../../assets/img/hamburger-line.svg";
+import hamburgerLine from "/assets/img/hamburger-line.svg";
 import { useState } from "react";
 
 const StyledBurger = styled.div`
@@ -65,6 +65,12 @@ export default function Hamburger() {
 		setIsOpen(!isOpen);
 	};
 
+	const scrollToDrinks = () => {
+		const drinksSection = document.getElementById("drinks");
+		drinksSection.scrollIntoView({ behavior: "smooth" });
+		toggleMenu();
+	};
+
 	return (
 		<>
 			<StyledBurger onClick={toggleMenu} alt="Hamburger menu" aria-expanded={isOpen} aria-controls="overlay-menu">
@@ -93,10 +99,9 @@ export default function Hamburger() {
 						<StyledATag href="#">Langos</StyledATag>
 					</li>
 					<li>
-						<StyledATag href="#">Drinks</StyledATag>
-					</li>
-					<li>
-						<StyledATag href="#">About us</StyledATag>
+						<StyledATag href="#" onClick={scrollToDrinks}>
+							Drinks
+						</StyledATag>{" "}
 					</li>
 				</StyledUl>
 			</Overlay>
