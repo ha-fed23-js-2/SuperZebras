@@ -2,27 +2,30 @@ const baseUrl = 'https://forverkliga.se/JavaScript/api/jsonStore.php';
 const key = 'SuperZebras';
 
 async function saveFoodToApi(newItem) {
-	// console.log('New item:', newItem);
 	const currentData = await loadFoodFromApi(); // we first load the current state
+
+	// Check if currentData.food and currentData.drinks exist. If not, initialize them to an empty array
+	if (!currentData.food) {
+		currentData.food = [];
+	}
+	if (!currentData.drinks) {
+		currentData.drinks = [];
+	}
 
 	const updatedData = {
 		food: newItem.food ?
 			[...currentData.food,
-			...newItem.food.filter(item =>
-
-				!currentData.food.find(existingItem =>
-					existingItem.name === item.name)).map(item =>
-						({ ...item, imageUrl: item.imageUrl || "" }))] :
-
+			...(newItem.food || []).filter(item =>
+				item && !currentData.food.find(existingItem =>
+					existingItem && existingItem.name === item.name)).map(item =>
+						item ? { ...item, imageUrl: item.imageUrl || "" } : {})] :
 			[...currentData.food],
 		drinks: newItem.drinks ?
 			[...currentData.drinks,
-			...newItem.drinks.filter(drink =>
-
-				!currentData.drinks.find(existingDrink =>
-					existingDrink.name === drink.name)).map(drink =>
-						({ ...drink, imageUrl: drink.imageUrl || "" }))] :
-
+			...(newItem.drinks || []).filter(drink =>
+				drink && !currentData.drinks.find(existingDrink =>
+					existingDrink && existingDrink.name === drink.name)).map(drink =>
+						drink ? { ...drink, imageUrl: drink.imageUrl || "" } : {})] :
 			[...currentData.drinks],
 	};
 

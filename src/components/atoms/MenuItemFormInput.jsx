@@ -86,10 +86,18 @@ const MenuItemForm = () => {
 			image,
 		};
 
-		// Structure the data as expected by the API
-		const dataToSave = category === "Food" ? { food: [newMenuItem], drinks: [] } : { food: [], drinks: [newMenuItem] };
-
 		try {
+			// Update the state in the store
+			if (category === "Food") {
+				addFoodItem(newMenuItem);
+			} else {
+				addDrinkItem(newMenuItem);
+			}
+
+			// Structure the data as expected by the API
+			const dataToSave =
+				category === "Food" ? { food: [newMenuItem], drinks: [] } : { food: [], drinks: [newMenuItem] };
+
 			await saveFoodToApi(dataToSave);
 
 			// Reset form fields after successful submission
@@ -99,24 +107,12 @@ const MenuItemForm = () => {
 			setImage("");
 			setCategory("Food");
 
-			// Update the state in the store
-			if (category === "Food") {
-				addFoodItem(newMenuItem);
-			} else {
-				addDrinkItem(newMenuItem);
-			}
+			await loadFoodFromApi();
+			// window.location.reload();
 		} catch (error) {
 			console.error("Failed to save menu item:", error);
 		}
-
-		try {
-			await loadFoodFromApi();
-			window.location.reload();
-		} catch (error) {
-			console.error("Failed to load menu items:", error);
-		}
 	};
-
 	return (
 		<StyledForm>
 			<form onSubmit={submitHandler}>

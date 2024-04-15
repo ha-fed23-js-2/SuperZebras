@@ -27,6 +27,22 @@ const Logo = styled.img`
 	margin-bottom: 20px;
 `;
 
+const ItemLine = styled.p`
+	width: 100%;
+	text-align: center;
+	border-bottom: 1px solid var(--compliment-color);
+	line-height: 0.05em;
+	font-size: var(--font-med-bigger);
+	letter-spacing: var(--letter-spacing-big);
+	span {
+		padding: 0 14px;
+		background-color: var(--main-color);
+	}
+	&.food-item-line {
+		padding-top: 4rem;
+	}
+`;
+
 const MumsMenu = () => {
 	const { addDrinkItem, addFoodItem } = useLangosStore();
 	const [menuItems, setMenuItems] = useState([]);
@@ -58,9 +74,15 @@ const MumsMenu = () => {
 		<StyledMumsMenu>
 			<Logo src={logo} alt="logo" />
 			<MenuItemForm addMenuItem={addMenuItem} />
-			Foods:
+
+			<ItemLine className="food-item-line">
+				<span>Foods:</span>
+			</ItemLine>
 			<EditMenuItem category="food" />
-			Drinks:
+
+			<ItemLine>
+				<span>Drinks:</span>
+			</ItemLine>
 			<EditMenuItem category="drinks" />
 		</StyledMumsMenu>
 	);
