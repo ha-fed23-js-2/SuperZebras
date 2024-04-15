@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import Dropdown from "./DropDownMenuImg";
-import { loadFoodFromApi, saveFoodToApi } from "../atoms/apiConnection";
+import { loadFoodFromApi, saveFoodToApi } from "./apiConnection";
 import { useItemStore, useLangosStore } from "../../data/ItemStore";
 
 const StyledForm = styled.div`
