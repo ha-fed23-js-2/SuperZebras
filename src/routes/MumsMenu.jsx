@@ -3,7 +3,7 @@ import MenuItemForm from "../components/atoms/MenuItemFormInput";
 import styled from "styled-components";
 import logo from "../assets/img/andra-longos-light-logo.svg";
 import EditMenuItem from "../components/organisms/EditMenuItem";
-import { saveFoodToApi, loadFoodFromApi } from "../components/atoms/apiConnection";
+import { saveFoodToApi } from "../components/atoms/apiConnection";
 import { useLangosStore } from "../data/ItemStore";
 
 const StyledMumsMenu = styled.section`
@@ -28,7 +28,6 @@ const Logo = styled.img`
 `;
 
 const MumsMenu = () => {
-	// const { loadTheFoodPlease } = useMenuStore()
 	const { addDrinkItem, addFoodItem } = useLangosStore();
 	const [menuItems, setMenuItems] = useState([]);
 	const [drinkItems, setDrinkItems] = useState([]);
@@ -49,13 +48,7 @@ const MumsMenu = () => {
 		};
 		await saveFoodToApi(foodAndDrinks);
 	};
-	const loadTheFoodPlease = async () => {
-		const menuData = await loadFoodFromApi();
-		if (menuData) {
-			setMenuItems(menuData.food);
-			setDrinkItems(menuData.drinks);
-		}
-	};
+
 	useEffect(() => {
 		if (menuItems.length > 0 || drinkItems.length > 0) {
 			saveTheFoodPlease();
@@ -65,8 +58,9 @@ const MumsMenu = () => {
 		<StyledMumsMenu>
 			<Logo src={logo} alt="logo" />
 			<MenuItemForm addMenuItem={addMenuItem} />
-			<button onClick={loadTheFoodPlease}> ladda </button>
+			Foods:
 			<EditMenuItem category="food" />
+			Drinks:
 			<EditMenuItem category="drinks" />
 		</StyledMumsMenu>
 	);

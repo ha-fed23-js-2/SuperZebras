@@ -68,7 +68,8 @@ const Dropdown = ({ onCategoryChange }) => {
 
 	const [category, setCategory] = useState("Food");
 
-	const handleCategoryChange = (newCategory) => {
+	const handleCategoryChange = (newCategory, event) => {
+		event.stopPropagation();
 		setCategory(newCategory);
 		onCategoryChange(newCategory); // Use the passed prop for handling category changes
 	};
@@ -86,12 +87,12 @@ const Dropdown = ({ onCategoryChange }) => {
 					<>
 						<div
 							style={{ display: "flex", justifyContent: "space-between", overflow: "hidden", margin: "0 auto" }}
-							onClick={() => handleCategoryChange("Food")}>
+							onClick={(e) => handleCategoryChange("Food", e)}>
 							Food
 						</div>
 						<div
 							style={{ display: "flex", justifyContent: "space-between", overflow: "hidden", margin: "0 auto" }}
-							onClick={() => handleCategoryChange("Drinks")}>
+							onClick={(e) => handleCategoryChange("Drinks", e)}>
 							Drinks
 						</div>
 					</>
