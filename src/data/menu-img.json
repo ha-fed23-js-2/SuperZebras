@@ -1,22 +1,22 @@
 {
 	"items": [
 		{
-			"img": "../assets/img/menu-imgs/item_food1.svg"
+			"img": "./assets/img/menu-imgs/item_food1.svg"
 		},
 		{
-			"img": "../assets/img/menu-imgs/item_food2.svg"
+			"img": "./assets/img/menu-imgs/item_food2.svg"
 		},
 		{
-			"img": "../assets/img/menu-imgs/item_food3.svg"
+			"img": "./assets/img/menu-imgs/item_food3.svg"
 		},
 		{
-			"img": "../assets/img/menu-imgs/item_drink1.svg"
+			"img": "./assets/img/menu-imgs/item_drink1.svg"
 		},
 		{
-			"img": "../assets/img/menu-imgs/item_drink2.svg"
+			"img": "./assets/img/menu-imgs/item_drink2.svg"
 		},
 		{
-			"img": "../assets/img/menu-imgs/item_drink3.svg"
+			"img": "./assets/img/menu-imgs/item_drink3.svg"
 		}
 	
 	]
