@@ -4,6 +4,8 @@ import logo from "/assets/img/test-logo-img.svg";
 import hamburgerLine from "/assets/img/hamburger-line.svg";
 import { myCart } from "./RenderMenuItem";
 import MenuItem from "../molecules/menu/MenuItem";
+import { useEffect } from "react"; // Import useEffect
+
 const OverlayContainer = styled.div`
 	position: fixed;
 	margin: 0 auto;
@@ -17,6 +19,7 @@ const OverlayContainer = styled.div`
 	pointer-events: ${(props) => (props.$visible ? "auto" : "none")};
 	transition: opacity 0.2s ease-in-out;
 	padding-top: 20px;
+	overflow-y: auto;
 `;
 
 const ContentContainer = styled.div`
@@ -77,6 +80,8 @@ const OrderTitleContainer = styled.div`
 `;
 const OrderSumContainer = styled.div`
 	margin-top: auto;
+	padding-top: 40px;
+	padding-bottom: 40px;
 `;
 
 const YourOrderSection = styled.section``;
@@ -123,9 +128,9 @@ const RenderCartItems = () => {
 	return (
 		<div>
 			{myCart.map((item, index) => (
-				<div key={index}>
+				<div key={index} style={{backgroundColor: "var(--secondary-color)", marginBottom: "30px", paddingBottom: "30px", borderRadius: "10px" }}>
 					<MenuItem image={item.image} title={item.name} ingredients={item.ingredients} price={item.price} />
-					<DeleteOrderItem onClick={() => handleDelete(index)}>Delete Item</DeleteOrderItem>
+					<DeleteOrderItem onClick={() => handleDelete(index)}>Ta bort</DeleteOrderItem>
 				</div>
 			))}
 		</div>
@@ -139,6 +144,16 @@ export default function YourOrderOverlay() {
 	const handleCloseOverlay = () => {
 		toggleOverlay();
 	};
+
+	useEffect(() => {
+		if (overlayVisible) {
+			// Disable scrolling on the body element
+			document.body.style.overflow = "hidden";
+		} else {
+			// Enable scrolling on the body element
+			document.body.style.overflow = "auto";
+		}
+	}, [overlayVisible]); // Trigger effect when overlayVisible changes
 
 	let myPrice = myCart.map((item) => item.price);
 	const totalPrice = () => {

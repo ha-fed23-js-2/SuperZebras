@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-import logo from "/assets/img/andra-longos-light-logo.svg";
+import logo from "/assets/img/test-logo-img.svg";
 import PasswordInput from "../components/molecules/PasswordInput";
 import { useNavigate } from "react-router-dom";
 
