@@ -1,4 +1,5 @@
 import MenuItem from "../molecules/menu/MenuItem";
+import { useItemStore } from "../../data/ItemStore";
 import styled from "styled-components";
 import { useState, useEffect } from "react";
 import { loadFoodFromApi, deleteFoodFromApi } from "../atoms/apiConnection";
@@ -18,6 +19,8 @@ const StyledMenuRender = styled.div`
 
 const RenderMenuItem = ({ category }) => {
 	const [items, setItems] = useState([]);
+	// todo: use this god damn thing properly somehow
+	const selectedImageUrl = useItemStore((state) => state.selectecImageUrl);
 
 	useEffect(() => {
 		fetchData();
