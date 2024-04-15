@@ -1,8 +1,7 @@
-import React from "react";
 import styled from "styled-components";
 import LangosImage from "../../assets/img/langos-section-img.svg";
 import RenderMenuItem from "./RenderMenuItem";
-import { useLangosStore } from "../../data/ItemStore";
+import { useEffect, useState } from "react";
 const LangosSection = styled.section`
 	min-height: 80vh;
 	display: flex;
@@ -42,9 +41,19 @@ const FoodImage = styled.img`
 const RenderFoodItems = styled.div`
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 `;
 
 export default function FoodSection() {
+	// wait for promise to resolve with this ugly hack because hax
+	const [showMenuItem, setShowMenuItem] = useState(false);
+
+	useEffect(() => {
+		setTimeout(() => {
+			setShowMenuItem(true);
+		}, 1000);
+	}, []);
+
 	return (
 		<LangosSection>
 			<Title>
@@ -55,7 +64,7 @@ export default function FoodSection() {
 			<ItemLine>
 				<span>Langos</span>
 			</ItemLine>
-			<RenderFoodItems> <RenderMenuItem /> </RenderFoodItems>
+			<RenderFoodItems> {showMenuItem && <RenderMenuItem category="food">test</RenderMenuItem>}</RenderFoodItems>
 		</LangosSection>
 	);
 }

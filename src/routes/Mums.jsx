@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import logo from "../assets/img/andra-longos-light-logo.svg";
-import PasswordInput from "../components/moledules/PasswordInput";
+import PasswordInput from "../components/molecules/PasswordInput";
 import { useNavigate } from "react-router-dom";
 
 const StyledMums = styled.div`

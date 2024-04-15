@@ -2,7 +2,7 @@ const baseUrl = 'https://forverkliga.se/JavaScript/api/jsonStore.php';
 const key = 'SuperZebras';
 
 async function saveFoodToApi(newItem) {
-	console.log('New item:', newItem);
+	// console.log('New item:', newItem);
 	const currentData = await loadFoodFromApi(); // we first load the current state
 
 	const updatedData = {
@@ -26,7 +26,7 @@ async function saveFoodToApi(newItem) {
 			[...currentData.drinks],
 	};
 
-	console.log('Saving data to API:', updatedData);
+	// console.log('Saving data to API:', updatedData);
 	const url = `${baseUrl}?method=save`;
 	const response = await fetch(url, {
 		method: 'POST',
@@ -49,9 +49,9 @@ async function loadFoodFromApi() {
 		method: 'GET'
 	});
 	// const data = await response.json();
-	console.log('loadFromApi response ok? ', response.ok);
+	// console.log('loadFromApi response ok? ', response.ok);
 	let result = await response.json();
-	console.log('loadFromApi result: ', result);
+	// console.log('loadFromApi result: ', result);
 	return result;
 }
 
@@ -74,7 +74,7 @@ async function updateFoodInApi(newData) {
 }
 
 async function deleteFoodFromApi(index, category) {
-	console.log('Deleting item at index:', index, 'from category:', category);
+	// console.log('Deleting item at index:', index, 'from category:', category);
 	const currentData = await loadFoodFromApi();
 	const updatedData = {
 		food: category === 'food' ? [...currentData.food.slice(0, index), ...currentData.food.slice(index + 1)] : currentData.food,

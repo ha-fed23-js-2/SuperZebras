@@ -16,6 +16,20 @@ export const useOverlayStore = create((set) => ({
 	toggleOverlay: () => set((state) => ({ overlayVisible: !state.overlayVisible })),
 }));
 
+export const useCartStore = create((set) => ({
+	cartStuff: 0,
+	addToCart: () =>
+		set((state) => ({
+			cartStuff: state.cartStuff + 1,
+		})),
+
+	removeFromCart: () =>
+		set((state) => ({
+			cartStuff: state.cartStuff - 1,
+		})),
+	totalSum: 0,
+}));
+
 export const useLangosStore = create((set) => ({
 	category: "Food", // Default category
 	drinkItems: [],

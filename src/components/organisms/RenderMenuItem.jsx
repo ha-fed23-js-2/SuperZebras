@@ -1,7 +1,8 @@
-import MenuItem from "../moledules/menu/MenuItem";
+import MenuItem from "../molecules/menu/MenuItem";
 import styled from "styled-components";
 import { useState, useEffect } from "react";
 import { loadFoodFromApi } from "../atoms/apiConnection";
+import { useCartStore } from "../../data/ItemStore";
 
 const StyledMenuRender = styled.div`
 	display: flex;
@@ -16,10 +17,15 @@ const StyledMenuRender = styled.div`
 	box-sizing: border-box;
 `;
 
+const StyledButton = styled.button`
+	position: absolute;
+	transform: translateY(-4rem) translateX(21rem);
+`;
+export let myCart = [];
+export let CartItems = "";
+
 const RenderMenuItem = ({ category }) => {
 	const [items, setItems] = useState([]);
-
-	const myCart = [];
 
 	useEffect(() => {
 		fetchData();
@@ -40,25 +46,24 @@ const RenderMenuItem = ({ category }) => {
 		}
 	};
 
-	const handleBuy = async (index) => {
-		console.log("trying to buy: ", items[index]);
-		try {
-			await loadFoodFromApi(index, category);
-			fetchData(); // Refetch items after deletion to update UI, but how? lol
-			myCart.push(items[index]);
-			console.log("added: ", index, "to cart");
-			console.log(myCart);
-		} catch (error) {
-			console.error("Failed to delete item:", error);
-		}
+	const { addToCart, cartStuff } = useCartStore();
+
+	const handleBuy = (index) => {
+		myCart.push(items[index]);
+		console.log("Köpt:", items[index]);
+		addToCart();
+		console.log("cartStuff :", cartStuff);
+		// cartstuff here
+		// console.log("my current items:", CartItems);
 	};
+
 	return (
 		<StyledMenuRender>
 			{items.map((item, index) => (
 				<div key={index}>
 					<div>
 						<MenuItem image={item.image} title={item.name} ingredients={item.ingredients} price={item.price} />
-						<button onClick={() => handleBuy(index)}>Köp</button>
+						<StyledButton onClick={() => handleBuy(index)}>Köp</StyledButton>
 					</div>
 				</div>
 			))}
