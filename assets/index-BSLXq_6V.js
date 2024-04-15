@@ -224,7 +224,7 @@ Error generating stack: `+i.message+`
 	// text-align: center;
 	padding: 20px;
 	box-sizing: border-box;
-`;let wo=[];const Hh=({category:e})=>{const{selectedImageUrl:t}=Vt(s=>s.selectedImageUrl),[n,r]=R.useState([]);R.useEffect(()=>{o()},[e]);const o=async()=>{try{const s=await vn();s&&(e==="food"||e==="drinks")?r(s[e]):(console.error("Unexpected category or result structure:",e,s),r([]))}catch(s){console.error("Error fetching data:",s),r([])}},{addToCart:i,cartStuff:l}=Ao(),a=s=>{wo.push(n[s]),console.log("Köpt:",n[s]),i(),console.log("cartStuff :",l)};return w.jsx(a1,{children:n.map((s,u)=>w.jsx("div",{children:w.jsxs("div",{style:{position:"relative"},children:[w.jsx(Fu,{image:t||s.image,title:s.name,ingredients:s.ingredients,price:s.price}),w.jsx(l1,{onClick:()=>a(u),children:"Köp"})]})},u))})},s1=I.section`
+`;let wo=[];const Hh=({category:e})=>{const{selectedImageUrl:t}=Vt(s=>s.selectedImageUrl),[n,r]=R.useState([]);R.useEffect(()=>{o()},[e]);const o=async()=>{try{const s=await vn();s&&(e==="food"||e==="drinks")?r(s[e]):(console.error("Unexpected category or result structure:",e,s),r([]))}catch(s){console.error("Error fetching data:",s),r([])}},{addToCart:i,cartStuff:l}=Ao(),a=s=>{wo.push(n[s]),console.log("Köpt:",n[s]),i(),console.log("cartStuff :",l)};return w.jsx(a1,{children:n.map((s,u)=>s!==null&&w.jsx("div",{children:w.jsxs("div",{style:{position:"relative"},children:[w.jsx(Fu,{image:t||s.image||"",title:s.name,ingredients:s.ingredients,price:s.price}),w.jsx(l1,{onClick:()=>a(u),children:"Köp"})]})},u))})},s1=I.section`
 	min-height: 80vh;
 	display: flex;
 	flex-direction: column;
@@ -595,7 +595,7 @@ box-shadow: var(--shadow);
 	text-align: center;
 	padding: 20px;
 	box-sizing: border-box;
-`,Qd=({category:e})=>{const[t,n]=R.useState([]),r=Vt(l=>l.selectecImageUrl);R.useEffect(()=>{o()},[e]);const o=async()=>{try{const l=await vn();l&&(e==="food"||e==="drinks")?n(l[e]):(console.error("Unexpected category or result structure:",e,l),n([]))}catch(l){console.error("Error fetching data:",l),n([])}},i=async l=>{console.log("trying to delete: ",t[l]);try{await Fh(l,e),o()}catch(a){console.error("Failed to delete item:",a)}};return w.jsx(IS,{children:t.map((l,a)=>w.jsx("div",{children:w.jsxs("div",{children:[w.jsx(Fu,{image:r||l.image,title:l.name,ingredients:l.ingredients,price:l.price}),w.jsx("button",{onClick:()=>i(a),children:"Delete Item"})]})},a))})},NS=I.section`
+`,Qd=({category:e})=>{const[t,n]=R.useState([]),r=Vt(l=>l.selectedImageUrl);R.useEffect(()=>{o()},[e]);const o=async()=>{try{const l=await vn();l&&(e==="food"||e==="drinks")?n(l[e]):(console.error("Unexpected category or result structure:",e,l),n([]))}catch(l){console.error("Error fetching data:",l),n([])}},i=async l=>{console.log("trying to delete: ",t[l]);try{await Fh(l,e),o()}catch(a){console.error("Failed to delete item:",a)}};return w.jsx(IS,{children:t.filter(l=>l!==null).map((l,a)=>w.jsx("div",{children:w.jsxs("div",{children:[w.jsx(Fu,{image:r||l.image,title:l.name,ingredients:l.ingredients,price:l.price}),w.jsx("button",{onClick:()=>i(a),children:"Delete Item"})]})},a))})},NS=I.section`
 	display: flex;
 	flex-direction: column;
 	width: 100%;
