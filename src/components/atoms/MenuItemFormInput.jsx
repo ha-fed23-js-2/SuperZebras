@@ -65,7 +65,9 @@ const MenuItemForm = () => {
 	const [image, setImage] = useState("");
 	const [formValid, setFormValid] = useState(false);
 
-	const { images } = useItemStore();
+	const { images, selectedImageUrl } = useItemStore();
+	// Add this to hte other
+	
 
 	useEffect(() => {
 		if (images.length > 0) {
@@ -83,7 +85,7 @@ const MenuItemForm = () => {
 			name,
 			ingredients,
 			price,
-			image,
+			image: selectedImageUrl,
 		};
 
 		try {
