@@ -188,7 +188,7 @@ export default function YourOrderOverlay() {
 				<OrderSumContainer>
 					<Divider />
 					<OrderSum>
-						<p>You have {cartStuff} items and your sum  is {totalPrice()}:- </p>
+						<p>You have chosen {cartStuff} items and your sum  is {totalPrice()}:- </p>
 						<button>Pay</button>
 					</OrderSum>
 				</OrderSumContainer>
