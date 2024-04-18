@@ -11,6 +11,7 @@ const StyledButton = styled.button`
 	display: block;
 	background-color: var(--notification-color);
 	font-size: var(--font-med-small);
+	transition: font-size 0.3s ease-in-out;
 	letter-spacing: var(--letter-spacing-med);
 	transform: rotate(3deg);
 	// box-shadow: var(--shadow);
@@ -18,6 +19,9 @@ const StyledButton = styled.button`
 	right: 0;
 	top: 170px;
 	padding: 0.4rem 0.8rem;
+	&:hover {
+		font-size: 101%;
+	}
 	@media (max-width: 480px) {
 		margin: 10px auto;
 		position: static;
