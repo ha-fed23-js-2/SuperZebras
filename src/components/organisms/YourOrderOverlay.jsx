@@ -140,6 +140,7 @@ const RenderCartItems = () => {
 export default function YourOrderOverlay() {
 	const overlayVisible = useOverlayStore((state) => state.overlayVisible);
 	const toggleOverlay = useOverlayStore((state) => state.toggleOverlay);
+	const cartStuff = useCartStore(state => state.cartStuff)
 
 	const handleCloseOverlay = () => {
 		toggleOverlay();
@@ -187,7 +188,7 @@ export default function YourOrderOverlay() {
 				<OrderSumContainer>
 					<Divider />
 					<OrderSum>
-						<p>Your sum {totalPrice()}:- </p>
+						<p>You have {cartStuff} items and your sum  is {totalPrice()}:- </p>
 						<button>Pay</button>
 					</OrderSum>
 				</OrderSumContainer>
