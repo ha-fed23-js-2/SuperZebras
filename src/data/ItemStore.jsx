@@ -82,7 +82,7 @@ export const useLangosStore = create((set) => ({
 
 			return state;
 		}),
-	deleteItem: async (itemIs, category) => {
+	deleteItem: async (itemId, category) => {
 		try {
 			await deleteFoodFromApi(itemId, category);
 			await loadFoodFromApi();
@@ -90,4 +90,5 @@ export const useLangosStore = create((set) => ({
 			console.error("Failed to delete item from API", error);
 		}
 	},
+	
 }));

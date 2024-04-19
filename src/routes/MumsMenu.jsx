@@ -12,6 +12,7 @@ const StyledMumsMenu = styled.section`
 	width: 100%;
 	height: 100%;
 	font-size: var(--font-med);
+	color: var(--secondary-color);
 	align-items: center;
 	justify-content: flex-start;
 	text-align: center;
@@ -30,7 +31,7 @@ const Logo = styled.img`
 const ItemLine = styled.p`
 	width: 100%;
 	text-align: center;
-	border-bottom: 1px solid var(--compliment-color);
+	border-bottom: 1px solid var(--secondary-color);
 	line-height: 0.05em;
 	font-size: var(--font-med-bigger);
 	letter-spacing: var(--letter-spacing-big);

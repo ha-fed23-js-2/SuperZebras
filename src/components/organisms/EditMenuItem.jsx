@@ -1,4 +1,4 @@
-import MenuItem from "../molecules/menu/MenuItem";
+import MenuItemEdit from "../molecules/menu/MenuItemEdit";
 import { useItemStore } from "../../data/ItemStore";
 import styled from "styled-components";
 import { useState, useEffect } from "react";
@@ -10,6 +10,7 @@ const StyledMenuRender = styled.div`
 	width: 100%;
 	height: 100%;
 	font-size: var(--font-med);
+	color: var(--secondary-color);
 	// align-items: center;
 	justify-content: flex-start;
 	text-align: center;
@@ -21,6 +22,7 @@ const RenderMenuItem = ({ category }) => {
 	const [items, setItems] = useState([]);
 	// todo: use this god damn thing properly somehow
 	const selectedImageUrl = useItemStore((state) => state.selectedImageUrl);
+	
 
 	useEffect(() => {
 		fetchData();
@@ -57,7 +59,7 @@ const RenderMenuItem = ({ category }) => {
 				.map((item, index) => (
 					<div key={index}>
 						<div>
-							<MenuItem
+							<MenuItemEdit
 								image={item.selectedImageUrl ? selectedImageUrl : item.image}
 								title={item.name}
 								ingredients={item.ingredients}

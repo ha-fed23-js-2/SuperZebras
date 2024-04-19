@@ -10,6 +10,9 @@ const OverlayContainer = styled.div`
 	position: fixed;
 	margin: 0 auto;
 	top: 0;
+	left:0;
+	right: 0;
+	bottom: 0;
 	width: 100%;
 	max-width: 800px;
 	height: 100vh;
