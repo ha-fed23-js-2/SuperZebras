@@ -17,6 +17,11 @@ const StyledMenuRender = styled.div`
 	box-sizing: border-box;
 `;
 
+const StyledParagraph = styled.p`
+
+, padding: 4rem;
+`;
+
 const RenderMenuItem = ({ category }) => {
 	const [items, setItems] = useState([]);
 	// todo: use this god damn thing properly somehow
@@ -52,21 +57,25 @@ const RenderMenuItem = ({ category }) => {
 	};
 	return (
 		<StyledMenuRender>
-			{items
-				.filter((item) => item !== null) // Filter out null items
-				.map((item, index) => (
-					<div key={index}>
-						<div>
-							<MenuItem
-								image={item.selectedImageUrl ? selectedImageUrl : item.image}
-								title={item.name}
-								ingredients={item.ingredients}
-								price={item.price}
-							/>
-							<button onClick={() => handleDelete(index)}>Delete Item</button>
+			{items && items.length > 0 ? (
+				items
+					.filter((item) => item !== null) // Filter out null items
+					.map((item, index) => (
+						<div key={index}>
+							<div>
+								<MenuItem
+									image={item.selectedImageUrl ? selectedImageUrl : item.image}
+									title={item.name}
+									ingredients={item.ingredients}
+									price={item.price}
+								/>
+								<button onClick={() => handleDelete(index)}>Delete Item</button>
+							</div>
 						</div>
-					</div>
-				))}
+					))
+			) : (
+				<StyledParagraph>Här var det tomt!</StyledParagraph>
+			)}
 		</StyledMenuRender>
 	);
 };

@@ -37,6 +37,11 @@ const StyledMenuRender = styled.div`
 	box-sizing: border-box;
 `;
 
+const StyledParagraph = styled.p`
+
+, padding: 4rem;
+`;
+
 export let myCart = [];
 export let CartItems = "";
 
@@ -76,22 +81,26 @@ const RenderMenuItem = ({ category }) => {
 
 	return (
 		<StyledMenuRender>
-			{items.map(
-				(item, index) =>
-					// Check if the item is not null before rendering
-					item !== null && (
-						<div key={index}>
-							<div style={{ position: "relative" }}>
-								<MenuItem
-									image={selectedImageUrl ? selectedImageUrl : item.image || ""} // Handle null image value
-									title={item.name}
-									ingredients={item.ingredients}
-									price={item.price}
-								/>
-								<StyledButton onClick={() => handleBuy(index)}>Köp</StyledButton>
+			{items && items.length > 0 ? (
+				items.map(
+					(item, index) =>
+						// Check if the item is not null before rendering
+						item !== null && (
+							<div key={index}>
+								<div style={{ position: "relative" }}>
+									<MenuItem
+										image={selectedImageUrl ? selectedImageUrl : item.image || ""}
+										title={item.name}
+										ingredients={item.ingredients}
+										price={item.price}
+									/>
+									<StyledButton onClick={() => handleBuy(index)}>Köp</StyledButton>
+								</div>
 							</div>
-						</div>
-					)
+						)
+				)
+			) : (
+				<StyledParagraph>Här var det tomt!</StyledParagraph>
 			)}
 		</StyledMenuRender>
 	);
