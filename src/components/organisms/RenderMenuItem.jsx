@@ -18,7 +18,7 @@ const StyledButton = styled.button`
 	right: 0;
 	top: 170px;
 	padding: 0.4rem 0.8rem;
-	@media (max-width: 480px) {
+	@media (max-width: 768px) {
 		margin: 10px auto;
 		position: static;
 	}
