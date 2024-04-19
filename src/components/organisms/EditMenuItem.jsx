@@ -1,4 +1,4 @@
-import MenuItem from "../molecules/menu/MenuItem";
+import MumsEditItem from "../molecules/menu/MumsEditItem";
 import { useItemStore } from "../../data/ItemStore";
 import styled from "styled-components";
 import { useState, useEffect } from "react";
@@ -57,7 +57,7 @@ const RenderMenuItem = ({ category }) => {
 				.map((item, index) => (
 					<div key={index}>
 						<div>
-							<MenuItem
+							<MumsEditItem
 								image={item.selectedImageUrl ? selectedImageUrl : item.image}
 								title={item.name}
 								ingredients={item.ingredients}

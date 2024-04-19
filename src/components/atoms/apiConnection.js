@@ -74,6 +74,7 @@ async function updateFoodInApi(newData) {
 	if (!response.ok) {
 		throw new Error(`API update failed with status: ${response.status}`);
 	}
+	console.log("newData", newData)
 }
 
 async function deleteFoodFromApi(index, category) {
