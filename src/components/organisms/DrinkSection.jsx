@@ -5,64 +5,83 @@ import RenderMenuItem from "./RenderMenuItem";
 import { useEffect, useState } from "react";
 
 const BeerSection = styled.section`
-	color: var(--compliment-color);
-	width: 100%;
-	background-color: var(--secondary-color);
-	padding: 0 20px 200px 20px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+    color: var(--compliment-color);
+    width: 100%;
+    background-color: var(--secondary-color);
+    padding: 0 20px 200px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+`;
+
+const ImageTextContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
 `;
 
 const Title2 = styled.h1`
-	line-height: 1;
+    line-height: 1;
 `;
 
 const DrinkSpan = styled.span`
-	font-size: var(--font-med-small);
+    font-size: var(--font-med-small);
 `;
 
 const FoodImage = styled.img`
-	width: 200px;
-	margin: 1em auto;
+    width: 200px;
+    margin: 4em 0;
+    @media (max-width: 768px) {
+        margin: 1em auto;
+    }
 `;
 
 const ItemLine = styled.p`
-	width: 100%;
-	text-align: center;
-	border-bottom: 1px solid rgb(221, 206, 205);
-	line-height: 0.05em;
-	font-size: var(--font-med-smaller);
-	span {
-		padding: 0 14px;
-		background-color: var(--secondary-color);
-	}
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid rgb(221, 206, 205);
+    line-height: 0.05em;
+    font-size: var(--font-med-smaller);
+    span {
+        padding: 0 14px;
+        background-color: var(--secondary-color);
+    }
 `;
 
 const RenderDrinkItems = styled.div`
-	display: flex;
-	flex-direction: column;
+    display: flex;
+    flex-direction: column;
 `;
 
 export default function DrinkSection() {
-	const [showMenuItem, setShowMenuItem] = useState(false);
+    const [showMenuItem, setShowMenuItem] = useState(false);
 
-	useEffect(() => {
-		setTimeout(() => {
-			setShowMenuItem(true);
-		}, 30);
-	}, []);
-	return (
-		<BeerSection>
-			<Title2>
-				Sugen på <br />
-				<DrinkSpan> god jävla</DrinkSpan> bärs?
-			</Title2>
-			<FoodImage src={drinkImage} alt="Drinks" />
-			<ItemLine>
-				<span>Bärs</span>
-			</ItemLine>
-			<RenderDrinkItems>{showMenuItem && <RenderMenuItem category="drinks">test</RenderMenuItem>}</RenderDrinkItems>
-		</BeerSection>
-	);
+    useEffect(() => {
+        setTimeout(() => {
+            setShowMenuItem(true);
+        }, 30);
+    }, []);
+    return (
+        <BeerSection>
+            <ImageTextContainer>
+                <Title2>
+                    Sugen på <br />
+                    <DrinkSpan> god jävla</DrinkSpan> bärs?
+                </Title2>
+                <FoodImage src={drinkImage} alt="Drinks" />
+            </ImageTextContainer>
+            <ItemLine>
+                <span>Bärs</span>
+            </ItemLine>
+            <RenderDrinkItems>
+                {showMenuItem && (
+                    <RenderMenuItem category="drinks">test</RenderMenuItem>
+                )}
+            </RenderDrinkItems>
+        </BeerSection>
+    );
 }
