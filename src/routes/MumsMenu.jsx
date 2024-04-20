@@ -48,15 +48,30 @@ const MumsMenu = () => {
 	const [menuItems, setMenuItems] = useState([]);
 	const [drinkItems, setDrinkItems] = useState([]);
 
+	// refactored this to avoid brain injuries
 	const addMenuItem = (newMenuItem, category) => {
-		if (category === "Food") {
-			setMenuItems((prevMenuItems) => [...prevMenuItems, newMenuItem]);
-			addFoodItem(newMenuItem);
-		} else {
-			setDrinkItems((prevDrinkItems) => [...prevDrinkItems, newMenuItem]);
-			addDrinkItem(newMenuItem);
+		// Define a mapping from category to the corresponding state and API function
+		const categoryFunctions = {
+			Food: {
+				setItems: setMenuItems,
+				addItem: addFoodItem,
+			},
+			Drinks: {
+				setItems: setDrinkItems,
+				addItem: addDrinkItem,
+			},
+		};
+
+		// Check if the category is either 'Food' or 'Drinks'
+		if (category in categoryFunctions) {
+			// Update the state
+			categoryFunctions[category].setItems((prevItems) => [...prevItems, newMenuItem]);
+
+			// Call the API function
+			categoryFunctions[category].addItem(newMenuItem);
 		}
 	};
+
 	const saveTheFoodPlease = async () => {
 		const foodAndDrinks = {
 			food: menuItems,

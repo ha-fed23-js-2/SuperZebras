@@ -1,10 +1,10 @@
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import PriceDisplay from "../../molecules/menu/PriceDisplay";
 
 const StyledItem = styled.div`
 	width: 100%;
 	height: 100%;
-	// padding-block: 3rem 3rem 1rem 3rem;
 	padding-top: 3rem;
 	padding-bottom: 1rem;
 	display: flex;
@@ -17,19 +17,21 @@ const StyledItemContent = styled.div`
 	justify-content: space-between;
 	width: 100%;
 	@media (max-width: 768px) {
-        flex-direction: column;
+		flex-direction: column;
 		align-items: center;
 	}
-    `;
-    
-    const StyledTextContent = styled.div`
+`;
+
+const StyledTextContent = styled.div`
 	flex-grow: 1;
 	text-align: left;
 	color: var(--compliment-color);
-    & > input{
-    font-size: var(--font-med-small);
-    letter-spacing: var(--letter-spacing-med);
-    }
+	& > input {
+		font-size: var(--font-med-small);
+		letter-spacing: var(--letter-spacing-med);
+		width: 100%; // Ensure full width for better usability
+		margin-bottom: 0.5rem; // Add some space between inputs
+	}
 	@media (max-width: 768px) {
 		text-align: center;
 	}
@@ -41,33 +43,62 @@ const PriceDisplayContainer = styled.div`
 	}
 `;
 
-
 const StyledMenuImg = styled.img`
 	width: 150px;
 	padding-inline: 1rem;
 `;
 
+const ButtonRow = styled.div`
+	display: flex;
+	justify-content: space-between;
+`;
+const MumsEditItem = ({ item, onSave, onDelete }) => {
+	const [editedTitle, setEditedTitle] = useState(item.name);
+	const [editedIngredients, setEditedIngredients] = useState(
+		Array.isArray(item.ingredients) ? item.ingredients.join(", ") : item.ingredients
+	);
+	const [editedPrice, setEditedPrice] = useState(item.price);
 
-const MumsEditItem = ({ image, title, ingredients, price }) => {
+	useEffect(() => {
+		console.log("Received item in MumsEditItem:", item);
+	}, [item]);
 
-    
+	const handleSave = () => {
+		const updatedItem = {
+			...item,
+			name: editedTitle,
+			ingredients: editedIngredients.split(", "),
+			price: editedPrice,
+		};
+		onSave(updatedItem);
+	};
+
 	return (
 		<StyledItem>
 			<StyledItemContent>
-				<StyledMenuImg src={image} alt={`menu-item-${title}`} />
+				<StyledMenuImg src={item.image || item.imageUrl} alt={`menu-item-${editedTitle}`} />
 				<StyledTextContent>
-                <label htmlFor="title"></label>
-                <input type="text" id="title" defaultValue={title} /> {/* Added label and id */}
-                <label htmlFor="ingredients"></label>
-                <input type="text" id="ingredients" defaultValue={ingredients} />
-                <button>Spara mig</button>
+					<label htmlFor="title">Title</label>
+					<input type="text" id="title" value={editedTitle} onChange={(e) => setEditedTitle(e.target.value)} />
+					<label htmlFor="ingredients">Ingredients</label>
+					<input
+						type="text"
+						id="ingredients"
+						value={editedIngredients}
+						onChange={(e) => setEditedIngredients(e.target.value)}
+					/>
+					<label htmlFor="price">Price</label>
+					<input type="text" id="price" value={editedPrice} onChange={(e) => setEditedPrice(e.target.value)} />
+					<ButtonRow>
+						<button onClick={handleSave}>Save</button>
+						<button onClick={onDelete}>Delete Item</button>
+					</ButtonRow>
 				</StyledTextContent>
 			</StyledItemContent>
 			<PriceDisplayContainer>
-				<PriceDisplay price={price}></PriceDisplay>
+				<PriceDisplay price={editedPrice} />
 			</PriceDisplayContainer>
 		</StyledItem>
 	);
 };
-
-export default MumsEditItem
+export default MumsEditItem;

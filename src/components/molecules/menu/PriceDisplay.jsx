@@ -24,6 +24,9 @@ const StyledPrice = styled.h3`
 	transform: rotate(4deg);
 `;
 const PriceDisplay = ({ price }) => {
+	if (price === undefined || price === null) {
+		return <StyledItemDisplay>Price not available</StyledItemDisplay>;
+	}
 	return (
 		<StyledItemDisplay>
 			<PriceBackground>
@@ -33,7 +36,7 @@ const PriceDisplay = ({ price }) => {
 	);
 };
 PriceDisplay.propTypes = {
-	price: PropTypes.string.isRequired,
+	price: PropTypes.string,
 };
 
 export default PriceDisplay;
