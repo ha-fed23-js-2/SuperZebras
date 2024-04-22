@@ -52,7 +52,7 @@ const ButtonRow = styled.div`
 	display: flex;
 	justify-content: space-between;
 `;
-const MumsEditItem = ({ item, onSave, onDelete }) => {
+const MumsEditItem = ({ item, onSave, onDelete, index }) => {
 	const [editedTitle, setEditedTitle] = useState(item.name);
 	const [editedIngredients, setEditedIngredients] = useState(
 		Array.isArray(item.ingredients) ? item.ingredients.join(", ") : item.ingredients
@@ -70,7 +70,7 @@ const MumsEditItem = ({ item, onSave, onDelete }) => {
 			ingredients: editedIngredients.split(", "),
 			price: editedPrice,
 		};
-		onSave(updatedItem);
+		onSave(updatedItem, index);
 	};
 
 	return (

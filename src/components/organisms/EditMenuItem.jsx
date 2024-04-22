@@ -77,6 +77,7 @@ const RenderMenuItem = ({ category }) => {
 				items.map((item, index) => (
 					<div key={index}>
 						<MumsEditItem
+							index={index}
 							item={item}
 							onSave={(updatedItem) => handleSaveUpdatedItem(updatedItem, index)}
 							onDelete={() => handleDeleteItem(index)}
